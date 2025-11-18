@@ -1,6 +1,10 @@
 <template>
   <div class="space-y-8">
-    <UForm :state="state" class="space-y-6" @submit="onSubmit">
+    <UForm
+      :state="state"
+      class="space-y-6 bg-white dark:bg-gray-900 rounded-xl p-6"
+      @submit="onSubmit"
+    >
       <div class="flex flex-col gap-2">
         <UButton
           type="button"
@@ -12,7 +16,9 @@
           <IconArrowLeft />
           <span>Retour</span>
         </UButton>
-        <h2 class="text-xl font-semibold mb-4">Créez votre espace de travail</h2>
+        <h2 class="text-xl font-semibold mb-4 text-gray-900 dark:text-white">
+          Créez votre espace de travail
+        </h2>
       </div>
       <ProfilePictureForm
         label="Logo de l’entreprise"
@@ -25,7 +31,7 @@
           <UInput
             v-model="state.nomEntreprise"
             placeholder="Peugeot"
-            class="w-lg text-lg"
+            class="w-lg text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
             size="lg"
           />
         </UFormField>
@@ -37,20 +43,20 @@
 Histoire et chiffres clés
 Produits ou services commercialisés
 Culture et valeurs"
-            class="w-lg text-lg"
+            class="w-lg text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
             size="lg"
           />
         </UFormField>
         <UFormField label="Site internet" name="site">
           <div class="flex">
             <span
-              class="inline-flex items-center px-3 rounded-l border border-r-0 border-gray-300 bg-gray-100 text-gray-500 text-sm"
+              class="inline-flex items-center px-3 rounded-l border border-r-0 border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-300 text-sm"
               >https://</span
             >
             <UInput
               v-model="state.site"
               placeholder="votre-entreprise.com"
-              class="w-md text-lg"
+              class="w-md text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
               size="lg"
               :ui="{ rounded: 'rounded-r-md rounded-l-none' }"
             />
@@ -60,7 +66,7 @@ Culture et valeurs"
           <UInput
             v-model="state.adresse"
             placeholder="Renseignez l’adresse de votre entreprise"
-            class="w-lg text-lg"
+            class="w-lg text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
             size="lg"
           />
         </UFormField>
@@ -68,20 +74,21 @@ Culture et valeurs"
           <UInput
             v-model="state.secteur"
             placeholder="Renseignez le secteur d’activité de votre entreprise"
-            class="w-lg text-lg"
+            class="w-lg text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
             size="lg"
           />
         </UFormField>
       </div>
-      <div class="flex mt-8 w-lg justify-between">
+      <div class="flex justify-between mt-8 w-lg">
         <UButton
           type="button"
           color="white"
           variant="ghost"
+          class="flex items-center gap-2 shadow-none border-none cursor-pointer hover:underline"
           @click="emit('prev-step')"
-          class="flex items-center gap-2 shadow-none border-none"
         >
-          <UIcon name="ph:arrow-left" class="h-5 w-5 cursor-pointer hover:underline" />  <span>Retour</span>
+          <UIcon name="ph:arrow-left" class="h-5 w-5 cursor-pointer hover:underline" />
+          <span>Retour</span>
         </UButton>
         <UButton type="submit" color="primary" class="w-2/3 flex justify-center">Continuer</UButton>
       </div>

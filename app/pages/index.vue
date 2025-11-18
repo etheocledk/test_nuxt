@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto py-10 px-10 bg-white rounded-xl border border-gray-200">
+  <div class="container mx-auto py-10 px-10 bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700">
     <SharedSeoManager />
     <UStepper v-model="step" :items="items" />
     <div class="mt-8">

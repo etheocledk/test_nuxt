@@ -1,17 +1,17 @@
 <template>
   <div class="space-y-8">
-    <UForm :schema="schema" :state="state" class="space-y-6" @submit="onSubmit">
-      <h2 class="text-xl font-semibold mb-6">Faisons connaissance</h2>
+    <UForm :schema="schema" :state="state" class="space-y-6 bg-white dark:bg-gray-900 rounded-xl p-6" @submit="onSubmit">
+      <h2 class="text-xl font-semibold mb-6 text-gray-900 dark:text-white">Faisons connaissance</h2>
       <ProfilePictureForm label="Photo de profil" />
       <div class="space-y-3">
         <UFormField label="Prénom" name="prenom">
-          <UInput v-model="state.prenom" placeholder="Votre prénom" class="w-lg text-lg" size="lg" />
+          <UInput v-model="state.prenom" placeholder="Votre prénom" class="w-lg text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white" size="lg" />
         </UFormField>
         <UFormField label="Nom" name="nom">
-          <UInput v-model="state.nom" placeholder="Votre nom" class="w-lg text-lg" size="lg" />
+          <UInput v-model="state.nom" placeholder="Votre nom" class="w-lg text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white" size="lg" />
         </UFormField>
         <UFormField label="Email" name="email">
-          <UInput v-model="state.email" placeholder="Votre email" class="w-lg text-lg" size="lg">
+          <UInput v-model="state.email" placeholder="Votre email" class="w-lg text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white" size="lg">
             <template #leading>
               <IconMail />
             </template>
