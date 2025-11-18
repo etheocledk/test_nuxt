@@ -1,5 +1,5 @@
 <template>
-  <UContainer class="my-12 pt-8 bg-default rounded-2xl border-muted px-0! border">
+  <UContainer class="my-12 pt-8 bg-default rounded-2xl border-muted px-0! border ">
     <SharedSeoManager />
     <UStepper v-model="step" :items="items" />
     <div class="mt-8">
