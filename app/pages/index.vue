@@ -3,7 +3,7 @@
     <UStepper v-model="step" :items="items" />
     <div class="mt-8">
       <FormStepOne v-if="step === 0" @next-step="step++" />
-      <FormStepTwo v-else-if="step === 1" />
+      <FormStepTwo v-else-if="step === 1" @prev-step="step--" @next-step="step++" />
       <FormStepThree v-else-if="step === 2" />
     </div>
   </div>
