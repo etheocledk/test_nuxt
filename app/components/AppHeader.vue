@@ -1,6 +1,6 @@
 <template>
   <header
-    class="fixed top-0 left-64 right-0 z-30 flex items-center justify-center px-6 py-3 bg-white dark:bg-gray-900/95 border-b border-gray-200"
+    class="fixed top-0 left-64 right-0 z-30 flex items-center justify-center px-6 py-3 bg-white dark:bg-gray-900/95 border-b border-gray-200 dark:border-gray-700"
     style="width: calc(100%-18rem)"
   >
     <LazyNuxtImg
@@ -27,7 +27,6 @@
 </template>
 <script setup lang="ts">
 import SharedLanguageSelector from '~/components/shared/LanguageSelector.vue'
-import UButton from '@nuxt/ui'
 
 defineProps<{ theme: string }>();
 const emit = defineEmits(['toggle-theme'])

@@ -3,7 +3,7 @@
     <div class="flex flex-row items-center gap-6">
       <!-- Avatar actuel -->
       <div class="shrink-0 flex flex-col items-center">
-        <span class="text-sm text-gray-800 dark:text-gray-100 mb-1">{{ label }}</span>
+        <span class="text-sm text-gray-800 dark:text-gray-100 mb-2">{{ label }}</span>
         <div class="relative">
           <template v-if="avatarUrl === defaultAvatar">
             <div
