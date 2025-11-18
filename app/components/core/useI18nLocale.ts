@@ -33,7 +33,7 @@ export function useI18nLocale() {
   const setLocale = async (newLocale: string) => {
     try {
       // Validate locale
-      const isValidLocale = availableLocales.value.some((l) => l.code === newLocale)
+      const isValidLocale = availableLocales.value.some((l: LocaleOption) => l.code === newLocale)
       if (!isValidLocale) {
         console.warn(`Invalid locale: ${newLocale}`)
         return
@@ -52,14 +52,14 @@ export function useI18nLocale() {
 
   // Get current locale option with metadata
   const getCurrentLocaleOption = computed(() =>
-    availableLocales.value.find((l) => l.code === currentLocale.value)
+    availableLocales.value.find((l: LocaleOption) => l.code === currentLocale.value)
   )
 
   // Initialize locale from storage or browser preference
   const initLocale = () => {
     if (import.meta.client) {
       const savedLocale = localStorage.getItem('locale')
-      if (savedLocale && availableLocales.value.some((l) => l.code === savedLocale)) {
+      if (savedLocale && availableLocales.value.some((l: LocaleOption) => l.code === savedLocale)) {
         setLocale(savedLocale)
         return
       }
@@ -68,7 +68,7 @@ export function useI18nLocale() {
       const browserLang = navigator.language
       const langPrefix = (browserLang ?? '').split('-')[0]
       const supportedLocale = langPrefix
-        ? availableLocales.value.find((l) => l.code.startsWith(langPrefix))
+        ? availableLocales.value.find((l: LocaleOption) => l.code.startsWith(langPrefix))
         : undefined
 
       if (supportedLocale) {
@@ -79,12 +79,12 @@ export function useI18nLocale() {
 
   // Get locale by code
   const getLocaleByCode = (code: string) => {
-    return availableLocales.value.find((l) => l.code === code)
+    return availableLocales.value.find((l: LocaleOption) => l.code === code)
   }
 
   // Check if locale is supported
   const isLocaleSupported = (code: string) => {
-    return availableLocales.value.some((l) => l.code === code)
+    return availableLocales.value.some((l: LocaleOption) => l.code === code)
   }
 
   return {

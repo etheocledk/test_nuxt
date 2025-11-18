@@ -27,32 +27,8 @@
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700 dark:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/></svg>
           </span>
         </button>
-        <!-- Sélecteur customisé de langue avec drapeaux -->
-        <div class="relative group">
-          <button
-            class="rounded-full w-12 h-12 flex items-center justify-center shadow-md border-2 bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 hover:scale-105 hover:shadow-lg transition-all duration-200"
-            aria-label="Changer la langue"
-            @click="showLang = !showLang"
-          >
-            <span class="text-2xl">
-              {{ locale === 'fr-FR' ? '🇫🇷' : '🇬🇧' }}
-            </span>
-          </button>
-          <div v-if="showLang" class="absolute bottom-14 right-0 bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 py-2 px-2 flex flex-col gap-1 min-w-[60px] z-50 animate-fade-in">
-            <button
-              class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition text-lg"
-              @click="locale = 'fr-FR'; showLang = false"
-            >
-              <span class="text-2xl">🇫🇷</span> Français
-            </button>
-            <button
-              class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition text-lg"
-              @click="locale = 'en-US'; showLang = false"
-            >
-              <span class="text-2xl">🇬🇧</span> English
-            </button>
-          </div>
-        </div>
+        <!-- LanguageSelector custom design -->
+        <SharedLanguageSelector />
       </div>
     </div>
   </div>
@@ -62,7 +38,6 @@
 import type { NavigationMenuItem } from '@nuxt/ui'
 import { computed, ref, watchEffect } from 'vue'
 import { useI18n } from 'vue-i18n'
-
 const { t, locale } = useI18n()
 
 const menu = computed<NavigationMenuItem[]>(() => {

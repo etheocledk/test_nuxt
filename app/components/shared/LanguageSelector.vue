@@ -1,41 +1,40 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { ref } from 'vue'
 import { useI18nLocale } from '~/components/core/useI18nLocale'
-import { useI18n } from 'vue-i18n'
 
-const { t } = useI18n()
-const { currentLocale, availableLocales, setLocale } = useI18nLocale()
+const showLang = ref(false)
+const { currentLocale, setLocale } = useI18nLocale()
 
-const handleLocaleChange = async (value: string) => {
-  await setLocale(value)
+const handleChange = async (code: string) => {
+  await setLocale(code)
+  showLang.value = false
 }
-
-const dropdownOptions = computed(() =>
-  availableLocales.value.map((locale) => ({
-    label: locale.flag,
-    value: locale.code
-  }))
-)
 </script>
 
 <template>
-  <div class="language-selector">
-    <label class="sr-only" for="lang-select">{{ t('header.language') }}</label>
-    <USelect
-      id="lang-select"
-      :model-value="currentLocale"
-      :items="dropdownOptions"
-      option-attribute="label"
-      value-attribute="value"
-      class="w-16"
-      @update:model-value="(value: any) => handleLocaleChange(value)"
-    />
+  <div class="relative group">
+    <button
+      class="rounded-full w-12 h-12 flex items-center justify-center shadow-md border-2 bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 hover:scale-105 hover:shadow-lg transition-all duration-200"
+      aria-label="Changer la langue"
+      @click="showLang = !showLang"
+    >
+      <span class="text-2xl">
+        {{ currentLocale === 'fr-FR' ? '🇫🇷' : '🇬🇧' }}
+      </span>
+    </button>
+    <div v-if="showLang" class="absolute bottom-14 right-0 bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 py-2 px-2 flex flex-col gap-1 min-w-[60px] z-50 animate-fade-in">
+      <button
+        class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition text-lg"
+        @click="handleChange('fr-FR')"
+      >
+        <span class="text-2xl">🇫🇷</span> Français
+      </button>
+      <button
+        class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition text-lg"
+        @click="handleChange('en-US')"
+      >
+        <span class="text-2xl">🇬🇧</span> English
+      </button>
+    </div>
   </div>
 </template>
-
-<style scoped>
-.language-selector {
-  display: flex;
-  align-items: center;
-}
-</style>
