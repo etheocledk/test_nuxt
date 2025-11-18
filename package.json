@@ -31,7 +31,6 @@
     "eslint": "^9.27.0",
     "flag-icons": "^7.5.0",
     "nuxt": "^4.2.1",
-    "nuxt-zod-i18n": "^1.12.1",
     "sharp": "^0.34.2",
     "swiper": "^11.2.8",
     "tailwindcss": "^4.1.8",
@@ -54,8 +53,12 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
+      "@parcel/watcher",
       "@tailwindcss/oxide",
-      "sharp"
+      "esbuild",
+      "sharp",
+      "unrs-resolver",
+      "vue-demi"
     ]
   }
 }

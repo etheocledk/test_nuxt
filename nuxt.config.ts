@@ -22,7 +22,6 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxtjs/sitemap',
     '@nuxtjs/robots',
-    'nuxt-zod-i18n',
     '@nuxtjs/i18n',
     '@nuxt/eslint',
     '@pinia/nuxt'
@@ -49,12 +48,6 @@ export default defineNuxtConfig({
     public: {
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL,
       baseUrl: process.env.NUXT_PUBLIC_BASE_URL
-    }
-  },
-  zodI18n: {
-    localeCodesMapping: {
-      'en-GB': 'en-US',
-      'fr-FR': 'fr-FR'
     }
   },
   i18n: {
