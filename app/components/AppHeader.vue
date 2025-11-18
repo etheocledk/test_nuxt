@@ -12,9 +12,24 @@
     />
     <div class="absolute right-6 flex items-center gap-3">
       <SharedLanguageSelector />
-      <UButton icon="i-lucide-bell" variant="ghost" :aria-label="t('header.notifications')" color="neutral" />
-      <UButton icon="i-lucide-megaphone" variant="ghost" :aria-label="t('header.announcements')" color="neutral" />
-      <UButton icon="i-lucide-help-circle" variant="ghost" :aria-label="t('header.help')" color="neutral" />
+      <UButton
+        icon="i-lucide-bell"
+        variant="ghost"
+        :aria-label="t('header.notifications')"
+        color="neutral"
+      />
+      <UButton
+        icon="i-lucide-megaphone"
+        variant="ghost"
+        :aria-label="t('header.announcements')"
+        color="neutral"
+      />
+      <UButton
+        icon="i-lucide-help-circle"
+        variant="ghost"
+        :aria-label="t('header.help')"
+        color="neutral"
+      />
       <UButton
         :icon="theme === 'dark' ? 'i-lucide-moon' : 'i-lucide-sun'"
         :color="theme === 'dark' ? 'primary' : 'neutral'"
@@ -32,6 +47,6 @@ import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 
-defineProps<{ theme: string }>();
+defineProps<{ theme: string }>()
 const emit = defineEmits(['toggle-theme'])
 </script>

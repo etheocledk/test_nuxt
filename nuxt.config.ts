@@ -5,13 +5,11 @@ export default defineNuxtConfig({
       meta: [
         { name: 'description', content: 'Wink' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' }
-      ],
+      ]
     }
   },
   imports: {
-    dirs: [
-      'composables/**'
-    ]
+    dirs: ['composables/**']
   },
   compatibilityDate: '2025-07-15',
   ssr: false,
@@ -27,7 +25,7 @@ export default defineNuxtConfig({
     'nuxt-zod-i18n',
     '@nuxtjs/i18n',
     '@nuxt/eslint',
-    '@pinia/nuxt',
+    '@pinia/nuxt'
     // '@nuxtjs/tailwindcss',
   ],
   image: {
@@ -83,6 +81,6 @@ export default defineNuxtConfig({
     },
     bundle: {
       optimizeTranslationDirective: false
-    },
+    }
   }
 })

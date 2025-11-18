@@ -1,17 +1,38 @@
 <template>
   <div class="space-y-8">
-    <UForm :state="state" class="space-y-6 bg-white dark:bg-gray-900 rounded-xl p-6" @submit="onSubmit">
-      <h2 class="text-xl font-semibold mb-6 text-gray-900 dark:text-white">{{ t('formStepOne.title') }}</h2>
+    <UForm
+      :state="state"
+      class="space-y-6 bg-white dark:bg-gray-900 rounded-xl p-6"
+      @submit="onSubmit"
+    >
+      <h2 class="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
+        {{ t('formStepOne.title') }}
+      </h2>
       <ProfilePictureForm :label="t('formStepOne.profilePicture')" />
       <div class="space-y-3">
         <UFormField :label="t('formStepOne.firstname')" name="prenom">
-          <UInput v-model="state.prenom" :placeholder="t('formStepOne.firstnamePlaceholder')" class="w-lg text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white" size="lg" />
+          <UInput
+            v-model="state.prenom"
+            :placeholder="t('formStepOne.firstnamePlaceholder')"
+            class="w-lg text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+            size="lg"
+          />
         </UFormField>
         <UFormField :label="t('formStepOne.lastname')" name="nom">
-          <UInput v-model="state.nom" :placeholder="t('formStepOne.lastnamePlaceholder')" class="w-lg text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white" size="lg" />
+          <UInput
+            v-model="state.nom"
+            :placeholder="t('formStepOne.lastnamePlaceholder')"
+            class="w-lg text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+            size="lg"
+          />
         </UFormField>
         <UFormField :label="t('formStepOne.email')" name="email">
-          <UInput v-model="state.email" :placeholder="t('formStepOne.emailPlaceholder')" class="w-lg text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white" size="lg">
+          <UInput
+            v-model="state.email"
+            :placeholder="t('formStepOne.emailPlaceholder')"
+            class="w-lg text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+            size="lg"
+          >
             <template #leading>
               <IconMail />
             </template>

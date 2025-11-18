@@ -11,7 +11,7 @@ const handleLocaleChange = async (value: string) => {
 }
 
 const dropdownOptions = computed(() =>
-  availableLocales.value.map(locale => ({
+  availableLocales.value.map((locale) => ({
     label: locale.flag,
     value: locale.code
   }))

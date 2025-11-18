@@ -138,7 +138,11 @@ function validate(state: FormState) {
 function onSubmit() {
   const errors = validate(state)
   if (Object.keys(errors).length > 0) {
-    toast.add({ title: t('formStepTwo.error'), description: Object.values(errors).join(', '), color: 'error' })
+    toast.add({
+      title: t('formStepTwo.error'),
+      description: Object.values(errors).join(', '),
+      color: 'error'
+    })
     return
   }
   emit('next-step')

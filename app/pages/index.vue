@@ -1,5 +1,7 @@
 <template>
-  <div class="container mx-auto py-10 px-10 bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700">
+  <div
+    class="container mx-auto py-10 px-10 bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700"
+  >
     <SharedSeoManager />
     <UStepper v-model="step" :items="items" />
     <div class="mt-8">
@@ -22,14 +24,14 @@ const { t } = useI18n()
 
 const items = ref<StepperItem[]>([
   {
-    title: t('formStepOne.title'),
+    title: t('formStepOne.title')
   },
   {
-    title: t('formStepTwo.title'),
+    title: t('formStepTwo.title')
   },
   {
-    title: t('formStepThree.title'),
-  },
+    title: t('formStepThree.title')
+  }
 ])
 
 const step = ref(0)

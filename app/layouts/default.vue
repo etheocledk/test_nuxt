@@ -3,7 +3,10 @@
     <AppSidebar :collapsed="collapsed" :menu="menu" />
     <div class="flex flex-col flex-1 ml-64 min-h-screen">
       <AppHeader :theme="theme" @toggle-theme="theme = theme === 'dark' ? 'light' : 'dark'" />
-      <main class="flex-1 p-8 overflow-y-auto bg-gray-50 dark:bg-gray-800 py-12" style="margin-top: 56px">
+      <main
+        class="flex-1 p-8 overflow-y-auto bg-gray-50 dark:bg-gray-800 py-12"
+        style="margin-top: 56px"
+      >
         <slot />
       </main>
     </div>

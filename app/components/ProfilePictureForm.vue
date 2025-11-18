@@ -3,11 +3,13 @@
     <div class="flex flex-row items-center gap-6">
       <!-- Avatar actuel -->
       <div class="shrink-0 flex flex-col items-center">
-        <span class="text-sm text-gray-800 dark:text-gray-100 mb-1">{{ props.label || t('profilePicture.label') }}</span>
+        <span class="text-sm text-gray-800 dark:text-gray-100 mb-1">{{
+          props.label || t('profilePicture.label')
+        }}</span>
         <div class="relative">
           <template v-if="avatarUrl === defaultAvatar">
             <div
-              :class=" [
+              :class="[
                 shape === 'square'
                   ? 'w-26 h-26 flex items-center justify-center rounded-lg border-4 border-white shadow-sm bg-gray-400 relative'
                   : 'w-26 h-26 flex items-center justify-center rounded-full border-4 border-white shadow-sm bg-gray-400 relative'
@@ -67,7 +69,11 @@
                   @click="triggerFileSelect"
                 >
                   <IconUpload />
-                  {{ avatarUrl === defaultAvatar ? t('profilePicture.addPhoto') : t('profilePicture.editPhoto') }}
+                  {{
+                    avatarUrl === defaultAvatar
+                      ? t('profilePicture.addPhoto')
+                      : t('profilePicture.editPhoto')
+                  }}
                 </button>
                 <button
                   type="button"

@@ -23,8 +23,6 @@ useHead({
     { property: 'og:url', content: currentUrl },
     { property: 'og:type', content: 'website' }
   ],
-  link: [
-    { rel: 'canonical', href: currentUrl }
-  ]
+  link: [{ rel: 'canonical', href: currentUrl }]
 })
 </script>

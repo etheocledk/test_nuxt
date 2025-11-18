@@ -8,39 +8,54 @@ defineProps<{
   collapsed?: boolean
 }>()
 
-const teams = ref([{
-  label: 'Wink',
-  avatar: {
-    src: '/assets/images/logo.png',
-    alt: 'Wink'
+const teams = ref([
+  {
+    label: 'Wink',
+    avatar: {
+      src: '/assets/images/logo.png',
+      alt: 'Wink'
+    }
   }
-}])
+])
 const selectedTeam = ref(teams.value[0])
 
 const items = computed<DropdownMenuItem[][]>(() => [
-  [{
-    ...teams.value[0],
-    onSelect() {
-      selectedTeam.value = teams.value[0]
+  [
+    {
+      ...teams.value[0],
+      onSelect() {
+        selectedTeam.value = teams.value[0]
+      }
     }
-  }],
-  [{
-    label: 'Manage team',
-    icon: 'i-lucide-cog'
-  }]
+  ],
+  [
+    {
+      label: 'Manage team',
+      icon: 'i-lucide-cog'
+    }
+  ]
 ])
 </script>
 
 <template>
   <UDropdownMenu
-    :items="items.map(group => group.map(item => ({ ...item, label: t('teamsMenu.' + (item.label || '').toLowerCase().replace(/ /g, '')) })) )"
+    :items="
+      items.map((group) =>
+        group.map((item) => ({
+          ...item,
+          label: t('teamsMenu.' + (item.label || '').toLowerCase().replace(/ /g, ''))
+        }))
+      )
+    "
     :content="{ align: 'center', collisionPadding: 12 }"
     :ui="{ content: collapsed ? 'w-40' : 'w-(--reka-dropdown-menu-trigger-width)' }"
   >
     <UButton
       v-bind="{
         ...selectedTeam,
-        label: collapsed ? undefined : t('teamsMenu.' + (selectedTeam?.label || '').toLowerCase().replace(/ /g, '')),
+        label: collapsed
+          ? undefined
+          : t('teamsMenu.' + (selectedTeam?.label || '').toLowerCase().replace(/ /g, '')),
         trailingIcon: collapsed ? undefined : 'i-lucide-chevrons-up-down'
       }"
       color="neutral"
