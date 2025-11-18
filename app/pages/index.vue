@@ -13,16 +13,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import type { StepperItem } from '@nuxt/ui'
 import FormStepOne from '~/components/FormStepOne.vue'
 import FormStepTwo from '~/components/FormStepTwo.vue'
 import FormStepThree from '~/components/FormStepThree.vue'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
-const items = ref<StepperItem[]>([
+const items = computed<StepperItem[]>(() => [
   {
     title: t('formStepOne.title')
   },

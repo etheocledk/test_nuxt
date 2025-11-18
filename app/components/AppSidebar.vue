@@ -7,7 +7,7 @@
         <TeamsMenu :collapsed="collapsed" />
       </div>
       <UNavigationMenu
-        :items="menu.map((item) => ({ ...item, label: t(item.label ?? '') }))"
+        :items="translatedMenu"
         tooltip
         popover
         orientation="vertical"
@@ -25,11 +25,16 @@
 import TeamsMenu from '~/components/TeamsMenu.vue'
 import type { NavigationMenuItem } from '@nuxt/ui'
 import { useI18n } from 'vue-i18n'
+import { computed } from 'vue'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
-defineProps<{
+const props = defineProps<{
   collapsed: boolean
   menu: NavigationMenuItem[]
 }>()
+
+const translatedMenu = computed(() =>
+  props.menu.map((item) => ({ ...item, label: t(item.label ?? '') }))
+)
 </script>
