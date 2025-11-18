@@ -4,11 +4,13 @@
 
 <script setup lang="ts">
 import { useHead, useRoute } from '#imports'
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 const route = useRoute()
 
-const title = 'Page d\'accueil - Wink'
-const description = 'Wink.'
+const title = t('seo.homeTitle')
+const description = t('seo.homeDescription')
 const siteUrl = 'https://monsite.com'
 const currentUrl = siteUrl + route.path
 

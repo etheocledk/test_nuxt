@@ -6,27 +6,31 @@
     <LazyNuxtImg
       provider="myProvider"
       src="/assets/images/logo.png"
-      alt="Logo"
+      :alt="t('header.logo_alt')"
       class="h-10 w-auto"
       quality="100"
     />
     <div class="absolute right-6 flex items-center gap-3">
       <SharedLanguageSelector />
-      <UButton icon="i-lucide-bell" variant="ghost" aria-label="Notifications" color="neutral" />
-      <UButton icon="i-lucide-megaphone" variant="ghost" aria-label="Annonces" color="neutral" />
-      <UButton icon="i-lucide-help-circle" variant="ghost" aria-label="Aide" color="neutral" />
+      <UButton icon="i-lucide-bell" variant="ghost" :aria-label="t('header.notifications')" color="neutral" />
+      <UButton icon="i-lucide-megaphone" variant="ghost" :aria-label="t('header.announcements')" color="neutral" />
+      <UButton icon="i-lucide-help-circle" variant="ghost" :aria-label="t('header.help')" color="neutral" />
       <UButton
         :icon="theme === 'dark' ? 'i-lucide-moon' : 'i-lucide-sun'"
         :color="theme === 'dark' ? 'primary' : 'neutral'"
         variant="ghost"
-        aria-label="Thème"
+        :aria-label="t('header.theme')"
         @click="$emit('toggle-theme')"
       />
     </div>
   </header>
 </template>
+
 <script setup lang="ts">
 import SharedLanguageSelector from '~/components/shared/LanguageSelector.vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 defineProps<{ theme: string }>();
 const emit = defineEmits(['toggle-theme'])

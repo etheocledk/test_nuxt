@@ -3,7 +3,7 @@
     <div class="flex flex-row items-center gap-6">
       <!-- Avatar actuel -->
       <div class="shrink-0 flex flex-col items-center">
-        <span class="text-sm text-gray-800 dark:text-gray-100 mb-2">{{ label }}</span>
+        <span class="text-sm text-gray-800 dark:text-gray-100 mb-1">{{ props.label || t('profilePicture.label') }}</span>
         <div class="relative">
           <template v-if="avatarUrl === defaultAvatar">
             <div
@@ -24,7 +24,7 @@
           <template v-else>
             <img
               :src="avatarUrl"
-              alt="Avatar utilisateur"
+              :alt="t('profilePicture.label')"
               :class="
                 shape === 'square'
                   ? 'w-26 h-26 rounded-xl object-cover border-4 border-white shadow-sm'
@@ -67,7 +67,7 @@
                   @click="triggerFileSelect"
                 >
                   <IconUpload />
-                  {{ avatarUrl === defaultAvatar ? 'Ajouter une photo' : 'Modifier la photo' }}
+                  {{ avatarUrl === defaultAvatar ? t('profilePicture.addPhoto') : t('profilePicture.editPhoto') }}
                 </button>
                 <button
                   type="button"
@@ -75,10 +75,10 @@
                   :disabled="isUploading || !avatarUrl"
                   @click="removeAvatar"
                 >
-                  Supprimer
+                  {{ t('profilePicture.remove') }}
                 </button>
               </div>
-              <span class="text-sm mt-1 block">au format *.png ou *.jpeg max 5mo</span>
+              <span class="text-sm mt-1 block">{{ t('profilePicture.format') }}</span>
             </div>
           </div>
           <div
@@ -91,7 +91,7 @@
                 fill="none"
                 viewBox="0 0 24 24"
               />
-              <p class="text-xs text-blue-700 font-medium">Téléchargement en cours...</p>
+              <p class="text-xs text-blue-700 font-medium">{{ t('profilePicture.uploading') }}</p>
             </div>
           </div>
         </div>
@@ -102,15 +102,18 @@
 
 <script setup lang="ts">
 import { ref, defineProps } from 'vue'
+import { useI18n } from 'vue-i18n'
 import IconBuilding from '~/components/icons/IconBuilding.vue'
 import IconAvatar from '~/components/icons/IconAvatar.vue'
 import IconSpinner from '~/components/icons/IconSpinner.vue'
 import IconUpload from '~/components/icons/IconUpload.vue'
 
+const { t } = useI18n()
+
 const props = defineProps({
   label: {
     type: String,
-    default: 'Photo de profil'
+    default: undefined
   },
   shape: {
     type: String,
@@ -138,7 +141,7 @@ function handleFileUpload(event: Event) {
     !['image/jpeg', 'image/png', 'image/webp'].includes(file.type) ||
     file.size > 5 * 1024 * 1024
   ) {
-    alert('Format ou taille de fichier non valide.')
+    alert(t('profilePicture.invalidFile'))
     return
   }
   const reader = new FileReader()
@@ -148,7 +151,7 @@ function handleFileUpload(event: Event) {
     isUploading.value = false
   }
   reader.onerror = () => {
-    alert("Erreur lors du chargement de l'image.")
+    alert(t('profilePicture.uploadError'))
     isUploading.value = false
   }
   reader.readAsDataURL(file)

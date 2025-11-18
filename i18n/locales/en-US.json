@@ -4,5 +4,84 @@
       "backToDashboard": "Back to dashboard",
       "confirmNewPassword": "Confirm new password"
     }
+  },
+  "header": {
+    "logo_alt": "Wink logo",
+    "notifications": "Notifications",
+    "announcements": "Announcements",
+    "help": "Help",
+    "theme": "Theme",
+    "language": "Language"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "messages": "Messages",
+    "users": "Users",
+    "stats": "Stats",
+    "projects": "Projects",
+    "support": "Support",
+    "logout": "Logout"
+  },
+  "formStepOne": {
+    "title": "Let's get to know each other",
+    "profilePicture": "Profile picture",
+    "firstname": "First name",
+    "firstnamePlaceholder": "Your first name",
+    "lastname": "Last name",
+    "lastnamePlaceholder": "Your last name",
+    "email": "Email",
+    "emailPlaceholder": "Your email",
+    "continue": "Continue",
+    "requiredFirstname": "First name is required",
+    "requiredLastname": "Last name is required",
+    "invalidEmail": "Invalid email",
+    "success": "Form submitted.",
+    "error": "Error"
+  },
+  "formStepTwo": {
+    "back": "Back",
+    "title": "Create your workspace",
+    "logo": "Company logo",
+    "companyName": "Company name",
+    "companyNamePlaceholder": "Peugeot",
+    "companyDescription": "Company description",
+    "companyDescriptionPlaceholder": "Briefly describe your company:\nHistory and key figures\nProducts or services\nCulture and values",
+    "website": "Website",
+    "websitePlaceholder": "your-company.com",
+    "address": "Head office address",
+    "addressPlaceholder": "Enter your company's address",
+    "sector": "Sector",
+    "sectorPlaceholder": "Enter your company's sector",
+    "continue": "Continue",
+    "requiredCompanyName": "Company name is required",
+    "requiredDescription": "Description is required",
+    "requiredWebsite": "Website is required",
+    "requiredAddress": "Address is required",
+    "requiredSector": "Sector is required"
+  },
+  "formStepThree": {
+    "title": "Get to know you better",
+    "inProgress": "In development..."
+  },
+  "profilePicture": {
+    "label": "Profile picture",
+    "addPhoto": "Add a photo",
+    "editPhoto": "Edit photo",
+    "remove": "Remove",
+    "format": "*.png or *.jpeg format, max 5MB",
+    "uploading": "Uploading...",
+    "invalidFile": "Invalid file format or size.",
+    "uploadError": "Error while uploading the image."
+  },
+  "teamsMenu": {
+    "nuxt": "Nuxt",
+    "nuxthub": "NuxtHub",
+    "nuxtlabs": "NuxtLabs",
+    "create": "Create team",
+    "manage": "Manage teams"
+  },
+  "seo": {
+    "homeTitle": "Home - Wink",
+    "homeDescription": "Wink."
   }
 }

@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import type { DropdownMenuItem } from '@nuxt/ui'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 defineProps<{
   collapsed?: boolean
@@ -44,14 +47,14 @@ const items = computed<DropdownMenuItem[][]>(() => {
 
 <template>
   <UDropdownMenu
-    :items="items"
+    :items="items.map(group => group.map(item => ({ ...item, label: t('teamsMenu.' + (item.label || '').toLowerCase().replace(/ /g, '')) })) )"
     :content="{ align: 'center', collisionPadding: 12 }"
     :ui="{ content: collapsed ? 'w-40' : 'w-(--reka-dropdown-menu-trigger-width)' }"
   >
     <UButton
       v-bind="{
         ...selectedTeam,
-        label: collapsed ? undefined : selectedTeam?.label,
+        label: collapsed ? undefined : t('teamsMenu.' + (selectedTeam?.label || '').toLowerCase().replace(/ /g, '')),
         trailingIcon: collapsed ? undefined : 'i-lucide-chevrons-up-down'
       }"
       color="neutral"

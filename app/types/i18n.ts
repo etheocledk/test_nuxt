@@ -13,7 +13,7 @@ export interface LocaleConfig {
 }
 
 // Translation key types (based on JSON structure)
-export type TranslationKey = typeof import('../i18n/locales/en-US.json')
+export type TranslationKey = typeof import('../app/i18n/locales/en-US.json')
 
 // Enhanced translation function type
 export interface TranslateFunction {

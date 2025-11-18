@@ -12,17 +12,20 @@
 
 <script setup lang="ts">
 import { ref, watchEffect } from 'vue'
+import { useI18n } from 'vue-i18n'
 import type { NavigationMenuItem } from '@nuxt/ui'
 import AppSidebar from '~/components/AppSidebar.vue'
 import AppHeader from '~/components/AppHeader.vue'
 
+const { t } = useI18n()
+
 const menu: NavigationMenuItem[] = [
-  { label: 'Dashboard', icon: 'i-lucide-layout-dashboard', to: '/' },
-  { label: 'Messages', icon: 'i-lucide-mail', to: '/messages' },
-  { label: 'Utilisateurs', icon: 'i-lucide-users', to: '/users' },
-  { label: 'Statistiques', icon: 'i-lucide-bar-chart-2', to: '/stats' },
-  { label: 'Projets', icon: 'i-lucide-folder', to: '/projects' },
-  { label: 'Support', icon: 'i-lucide-life-buoy', to: '/support' }
+  { label: t('sidebar.dashboard'), icon: 'i-lucide-layout-dashboard', to: '/' },
+  { label: t('sidebar.messages'), icon: 'i-lucide-mail', to: '/messages' },
+  { label: t('sidebar.users'), icon: 'i-lucide-users', to: '/users' },
+  { label: t('sidebar.stats'), icon: 'i-lucide-bar-chart-2', to: '/stats' },
+  { label: t('sidebar.projects'), icon: 'i-lucide-folder', to: '/projects' },
+  { label: t('sidebar.support'), icon: 'i-lucide-life-buoy', to: '/support' }
 ]
 
 const collapsed = ref(false)

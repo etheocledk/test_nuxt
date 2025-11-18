@@ -4,5 +4,84 @@
       "backToDashboard": "Retour au tableau de bord",
       "confirmNewPassword": "Confirmer le nouveau mot de passe"
     }
+  },
+  "header": {
+    "logo_alt": "Logo de Wink",
+    "notifications": "Notifications",
+    "announcements": "Annonces",
+    "help": "Aide",
+    "theme": "Thème",
+    "language": "Langue"
+  },
+  "sidebar": {
+    "dashboard": "Tableau de bord",
+    "messages": "Messages",
+    "users": "Utilisateurs",
+    "stats": "Statistiques",
+    "projects": "Projets",
+    "support": "Support",
+    "logout": "Déconnexion"
+  },
+  "formStepOne": {
+    "title": "Faisons connaissance",
+    "profilePicture": "Photo de profil",
+    "firstname": "Prénom",
+    "firstnamePlaceholder": "Votre prénom",
+    "lastname": "Nom",
+    "lastnamePlaceholder": "Votre nom",
+    "email": "Email",
+    "emailPlaceholder": "Votre email",
+    "continue": "Continuer",
+    "requiredFirstname": "Le prénom est requis",
+    "requiredLastname": "Le nom est requis",
+    "invalidEmail": "Email invalide",
+    "success": "Formulaire envoyé.",
+    "error": "Erreur"
+  },
+  "formStepTwo": {
+    "back": "Retour",
+    "title": "Créez votre espace de travail",
+    "logo": "Logo de l’entreprise",
+    "companyName": "Nom de l'entreprise",
+    "companyNamePlaceholder": "Peugeot",
+    "companyDescription": "Description de l'entreprise",
+    "companyDescriptionPlaceholder": "Décrivez votre entreprise brièvement :\nHistoire et chiffres clés\nProduits ou services commercialisés\nCulture et valeurs",
+    "website": "Site internet",
+    "websitePlaceholder": "votre-entreprise.com",
+    "address": "Adresse du siège social",
+    "addressPlaceholder": "Renseignez l’adresse de votre entreprise",
+    "sector": "Secteur d'activité",
+    "sectorPlaceholder": "Renseignez le secteur d’activité de votre entreprise",
+    "continue": "Continuer",
+    "requiredCompanyName": "Le nom de l'entreprise est requis",
+    "requiredDescription": "La description est requise",
+    "requiredWebsite": "Le site internet est requis",
+    "requiredAddress": "L'adresse est requise",
+    "requiredSector": "Le secteur d'activité est requis"
+  },
+  "formStepThree": {
+    "title": "Mieux vous connaître",
+    "inProgress": "En cours de développement..."
+  },
+  "profilePicture": {
+    "label": "Photo de profil",
+    "addPhoto": "Ajouter une photo",
+    "editPhoto": "Modifier la photo",
+    "remove": "Supprimer",
+    "format": "au format *.png ou *.jpeg max 5mo",
+    "uploading": "Téléchargement en cours...",
+    "invalidFile": "Format ou taille de fichier non valide.",
+    "uploadError": "Erreur lors du chargement de l'image."
+  },
+  "teamsMenu": {
+    "nuxt": "Nuxt",
+    "nuxthub": "NuxtHub",
+    "nuxtlabs": "NuxtLabs",
+    "create": "Créer une équipe",
+    "manage": "Gérer les équipes"
+  },
+  "seo": {
+    "homeTitle": "Page d'accueil - Wink",
+    "homeDescription": "Wink."
   }
 }

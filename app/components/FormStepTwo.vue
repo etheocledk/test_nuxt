@@ -100,8 +100,11 @@ Culture et valeurs"
 <script setup lang="ts">
 import { reactive } from 'vue'
 import { useToast } from '#imports'
+import { useI18n } from 'vue-i18n'
 import ProfilePictureForm from './ProfilePictureForm.vue'
 import IconArrowLeft from '~/components/icons/IconArrowLeft.vue'
+
+const { t } = useI18n()
 
 const emit = defineEmits(['prev-step', 'next-step'])
 
@@ -124,18 +127,18 @@ const state = reactive<FormState>({
 const toast = useToast()
 function validate(state: FormState) {
   const errors: Record<string, string> = {}
-  if (!state.nomEntreprise) errors.nomEntreprise = "Le nom de l'entreprise est requis"
-  if (!state.description) errors.description = 'La description est requise'
-  if (!state.site) errors.site = 'Le site internet est requis'
-  if (!state.adresse) errors.adresse = "L'adresse est requise"
-  if (!state.secteur) errors.secteur = "Le secteur d'activité est requis"
+  if (!state.nomEntreprise) errors.nomEntreprise = t('formStepTwo.requiredCompanyName')
+  if (!state.description) errors.description = t('formStepTwo.requiredDescription')
+  if (!state.site) errors.site = t('formStepTwo.requiredWebsite')
+  if (!state.adresse) errors.adresse = t('formStepTwo.requiredAddress')
+  if (!state.secteur) errors.secteur = t('formStepTwo.requiredSector')
   return errors
 }
 
 function onSubmit() {
   const errors = validate(state)
   if (Object.keys(errors).length > 0) {
-    toast.add({ title: 'Erreur', description: Object.values(errors).join(', '), color: 'error' })
+    toast.add({ title: t('formStepTwo.error'), description: Object.values(errors).join(', '), color: 'error' })
     return
   }
   emit('next-step')

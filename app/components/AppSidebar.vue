@@ -8,20 +8,23 @@
       </div>
       <UNavigationMenu
         :collapsed="collapsed"
-        :items="menu"
+        :items="menu.map(item => ({ ...item, label: t(item.label ?? '') }))"
         orientation="vertical"
         class="space-y-3 my-6 text-xl"
         item-class="py-4 px-5 rounded-lg"
       />
     </div>
     <div class="mt-auto p-4 flex flex-col gap-4">
-      <UButton color="error" block icon="i-lucide-log-out">Déconnexion</UButton>
+      <UButton color="error" block icon="i-lucide-log-out">{{ t('sidebar.logout') }}</UButton>
     </div>
   </aside>
 </template>
 <script setup lang="ts">
 import TeamsMenu from '~/components/TeamsMenu.vue'
 import type { NavigationMenuItem } from '@nuxt/ui'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 defineProps<{
   collapsed: boolean,

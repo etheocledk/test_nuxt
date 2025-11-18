@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useI18nLocale } from '~/components/core/useI18nLocale'
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 const { currentLocale, availableLocales, setLocale } = useI18nLocale()
 
 const handleLocaleChange = async (value: string) => {
@@ -18,7 +20,9 @@ const dropdownOptions = computed(() =>
 
 <template>
   <div class="language-selector">
+    <label class="sr-only" for="lang-select">{{ t('header.language') }}</label>
     <USelect
+      id="lang-select"
       :model-value="currentLocale"
       :items="dropdownOptions"
       option-attribute="label"

@@ -1,17 +1,17 @@
 <template>
   <div class="space-y-8">
-    <UForm :schema="schema" :state="state" class="space-y-6 bg-white dark:bg-gray-900 rounded-xl p-6" @submit="onSubmit">
-      <h2 class="text-xl font-semibold mb-6 text-gray-900 dark:text-white">Faisons connaissance</h2>
-      <ProfilePictureForm label="Photo de profil" />
+    <UForm :state="state" class="space-y-6 bg-white dark:bg-gray-900 rounded-xl p-6" @submit="onSubmit">
+      <h2 class="text-xl font-semibold mb-6 text-gray-900 dark:text-white">{{ t('formStepOne.title') }}</h2>
+      <ProfilePictureForm :label="t('formStepOne.profilePicture')" />
       <div class="space-y-3">
-        <UFormField label="Prénom" name="prenom">
-          <UInput v-model="state.prenom" placeholder="Votre prénom" class="w-lg text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white" size="lg" />
+        <UFormField :label="t('formStepOne.firstname')" name="prenom">
+          <UInput v-model="state.prenom" :placeholder="t('formStepOne.firstnamePlaceholder')" class="w-lg text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white" size="lg" />
         </UFormField>
-        <UFormField label="Nom" name="nom">
-          <UInput v-model="state.nom" placeholder="Votre nom" class="w-lg text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white" size="lg" />
+        <UFormField :label="t('formStepOne.lastname')" name="nom">
+          <UInput v-model="state.nom" :placeholder="t('formStepOne.lastnamePlaceholder')" class="w-lg text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white" size="lg" />
         </UFormField>
-        <UFormField label="Email" name="email">
-          <UInput v-model="state.email" placeholder="Votre email" class="w-lg text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white" size="lg">
+        <UFormField :label="t('formStepOne.email')" name="email">
+          <UInput v-model="state.email" :placeholder="t('formStepOne.emailPlaceholder')" class="w-lg text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white" size="lg">
             <template #leading>
               <IconMail />
             </template>
@@ -24,7 +24,7 @@
           color="primary"
           class="w-lg text-md p-1 flex text-center justify-center"
         >
-          Continuer
+          {{ t('formStepOne.continue') }}
         </UButton>
       </div>
     </UForm>
@@ -32,11 +32,14 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 import type { FormSubmitEvent } from '@nuxt/ui'
 import { reactive } from 'vue'
 import { useToast } from '#imports'
 import { useRouter } from 'vue-router'
 import IconMail from '~/components/icons/IconMail.vue'
+
+const { t } = useI18n()
 
 interface FormState {
   prenom: string
