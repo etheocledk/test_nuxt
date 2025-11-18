@@ -6,16 +6,18 @@
       @submit="onSubmit"
     >
       <div class="flex flex-col gap-2">
-        <UButton
-          type="button"
-          color="white"
-          variant="ghost"
-          class="flex items-center gap-2 shadow-none border-none cursor-pointer hover:underline"
-          @click="emit('prev-step')"
-        >
-          <IconArrowLeft />
-          <span>Retour</span>
-        </UButton>
+        <div>
+          <UButton
+            type="button"
+            color="neutral"
+            variant="ghost"
+            class="flex items-center gap-2 shadow-none border-none cursor-pointer hover:underline"
+            @click="emit('prev-step')"
+          >
+            <IconArrowLeft />
+            <span>Retour</span>
+          </UButton>
+        </div>
         <h2 class="text-xl font-semibold mb-4 text-gray-900 dark:text-white">
           Créez votre espace de travail
         </h2>
@@ -58,7 +60,6 @@ Culture et valeurs"
               placeholder="votre-entreprise.com"
               class="w-md text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
               size="lg"
-              :ui="{ rounded: 'rounded-r-md rounded-l-none' }"
             />
           </div>
         </UFormField>
@@ -82,7 +83,7 @@ Culture et valeurs"
       <div class="flex justify-between mt-8 w-lg">
         <UButton
           type="button"
-          color="white"
+          color="neutral"
           variant="ghost"
           class="flex items-center gap-2 shadow-none border-none cursor-pointer hover:underline"
           @click="emit('prev-step')"
