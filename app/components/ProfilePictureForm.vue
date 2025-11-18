@@ -62,7 +62,7 @@
               <div class="flex gap-1">
                 <button
                   type="button"
-                  class="btn btn-outline btn-primary btn-sm border border-gray-300 mx-1 rounded-xl px-4 py-2 flex items-center gap-2"
+                  class="btn btn-outline btn-primary btn-sm border border-gray-300 mx-1 rounded-xl px-4 py-2 flex items-center gap-2 cursor-pointer hover:bg-gray-100"
                   :disabled="isUploading"
                   @click="triggerFileSelect"
                 >
@@ -71,7 +71,7 @@
                 </button>
                 <button
                   type="button"
-                  class="btn btn-outline btn-error btn-sm border border-gray-300 mx-1 rounded-xl px-4 py-2"
+                  class="btn btn-outline btn-error btn-sm border border-gray-300 mx-1 rounded-xl px-4 py-2 cursor-pointer hover:bg-gray-100"
                   :disabled="isUploading || !avatarUrl"
                   @click="removeAvatar"
                 >
