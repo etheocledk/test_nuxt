@@ -1,9 +1,11 @@
 <template>
-  <UApp :locale="localesValues[currentLocale]">
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
-  </UApp>
+  <div class="flex flex-col min-h-screen">
+    <UApp :locale="localesValues[currentLocale]">
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
+    </UApp>
+  </div>
 </template>
 
 <script setup lang="ts">
