@@ -13,6 +13,7 @@
         orientation="vertical"
         :collapsed="collapsed"
         variant="pill"
+        :ui="{link: 'text-md py-2', list: 'space-y-2'}"
         class="w-full space-y-5 my-8 text-base"
       />
     </div>
