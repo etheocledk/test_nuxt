@@ -9,20 +9,7 @@
           class="flex items-center gap-2 shadow-none border-none cursor-pointer hover:underline"
           @click="emit('prev-step')"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
+          <IconArrowLeft />
           <span>Retour</span>
         </UButton>
         <h2 class="text-xl font-semibold mb-4">Créez votre espace de travail</h2>
@@ -106,6 +93,7 @@ Culture et valeurs"
 import { reactive } from 'vue'
 import { useToast } from '#imports'
 import ProfilePictureForm from './ProfilePictureForm.vue'
+import IconArrowLeft from '~/components/icons/IconArrowLeft.vue'
 
 const emit = defineEmits(['prev-step', 'next-step'])
 

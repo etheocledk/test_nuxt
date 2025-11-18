@@ -14,38 +14,10 @@
               ]"
             >
               <template v-if="shape === 'square'">
-                <!-- Icône building -->
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-12 w-12 text-white opacity-90"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 21V7a2 2 0 012-2h2a2 2 0 012 2v14M13 21V3a2 2 0 012-2h2a2 2 0 012 2v18M9 21h6"
-                  />
-                </svg>
+                <IconBuilding />
               </template>
               <template v-else>
-                <!-- Icône avatar -->
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-12 w-12 text-white opacity-90"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5.121 17.804A13.937 13.937 0 0112 15c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                </svg>
+                <IconAvatar />
               </template>
             </div>
           </template>
@@ -68,17 +40,7 @@
                 : 'absolute inset-0 bg-white bg-opacity-50 rounded-full flex items-center justify-center'
             "
           >
-            <svg class="animate-spin h-5 w-5 text-blue-700" fill="none" viewBox="0 0 24 24">
-              <circle
-                class="opacity-25"
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                stroke-width="4"
-              ></circle>
-              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
-            </svg>
+            <IconSpinner v-if="isUploading" />
           </div>
         </div>
       </div>
@@ -104,9 +66,7 @@
                   :disabled="isUploading"
                   @click="triggerFileSelect"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" />
-                  </svg>
+                  <IconUpload />
                   {{ avatarUrl === defaultAvatar ? 'Ajouter une photo' : 'Modifier la photo' }}
                 </button>
                 <button
@@ -126,21 +86,11 @@
             class="bg-blue-100 border border-blue-200 rounded-lg p-2 max-w-xl"
           >
             <div class="flex items-center gap-2">
-              <svg
+              <IconSpinner
                 class="animate-spin h-4 w-4 text-blue-700 shrink-0"
                 fill="none"
                 viewBox="0 0 24 24"
-              >
-                <circle
-                  class="opacity-25"
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke="currentColor"
-                  stroke-width="4"
-                ></circle>
-                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
-              </svg>
+              />
               <p class="text-xs text-blue-700 font-medium">Téléchargement en cours...</p>
             </div>
           </div>
@@ -152,6 +102,10 @@
 
 <script setup lang="ts">
 import { ref, defineProps } from 'vue'
+import IconBuilding from '~/components/icons/IconBuilding.vue'
+import IconAvatar from '~/components/icons/IconAvatar.vue'
+import IconSpinner from '~/components/icons/IconSpinner.vue'
+import IconUpload from '~/components/icons/IconUpload.vue'
 
 const props = defineProps({
   label: {

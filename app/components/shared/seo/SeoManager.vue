@@ -7,8 +7,8 @@ import { useHead, useRoute } from '#imports'
 
 const route = useRoute()
 
-const title = 'Titre de la page'
-const description = 'Description de la page.'
+const title = 'Page d\'accueil - Wink'
+const description = 'Wink.'
 const siteUrl = 'https://monsite.com'
 const currentUrl = siteUrl + route.path
 
