@@ -1,63 +1,8 @@
 <template>
   <div class="flex min-h-screen">
-    <!-- Sidebar gauche -->
-    <aside
-      class="w-64 min-w-64 max-w-sm flex flex-col h-full bg-white dark:bg-gray-900/95 fixed left-0 top-0 bottom-0 z-20 border-r border-gray-200 dark:border-gray-700 overflow-x-hidden px-3"
-    >
-      <div class=" dark:border-gray-700">
-        <div class="p-3 flex justify-center">
-          <TeamsMenu :collapsed="collapsed"  />
-        </div>
-
-        <UNavigationMenu
-          :collapsed="collapsed"
-          :items="menu"
-          orientation="vertical"
-          class="space-y-3 my-6 text-xl"
-          item-class="py-4 px-5 rounded-lg"
-        />
-      </div>
-      <div class="mt-auto p-4 flex flex-col gap-4">
-        <UButton color="error" block icon="i-lucide-log-out">Déconnexion</UButton>
-      </div>
-    </aside>
-    <!-- Colonne droite : header + main -->
+    <AppSidebar :collapsed="collapsed" :menu="menu" />
     <div class="flex flex-col flex-1 ml-64 min-h-screen">
-      <header
-        class="fixed top-0 left-64 right-0 z-30 flex items-center justify-center px-6 py-3 bg-white dark:bg-gray-900/95 border-b border-gray-200"
-        style="width: calc(100%-18rem)"
-      >
-        <LazyNuxtImg
-          provider="myProvider"
-          src="/assets/images/logo.png"
-          alt="Logo"
-          class="h-10 w-auto"
-          quality="100"
-        />
-        <div class="absolute right-6 flex items-center gap-3">
-          <SharedLanguageSelector />
-          <UButton
-            icon="i-lucide-bell"
-            variant="ghost"
-            aria-label="Notifications"
-            color="neutral"
-          />
-          <UButton
-            icon="i-lucide-megaphone"
-            variant="ghost"
-            aria-label="Annonces"
-            color="neutral"
-          />
-          <UButton icon="i-lucide-help-circle" variant="ghost" aria-label="Aide" color="neutral" />
-          <UButton
-            :icon="theme === 'dark' ? 'i-lucide-moon' : 'i-lucide-sun'"
-            :color="theme === 'dark' ? 'primary' : 'neutral'"
-            variant="ghost"
-            aria-label="Thème"
-            @click="theme = theme === 'dark' ? 'light' : 'dark'"
-          />
-        </div>
-      </header>
+      <AppHeader :theme="theme" @toggle-theme="theme = theme === 'dark' ? 'light' : 'dark'" />
       <main class="flex-1 p-8 overflow-y-auto bg-gray-50 dark:bg-gray-800 py-12" style="margin-top: 56px">
         <slot />
       </main>
@@ -68,6 +13,8 @@
 <script setup lang="ts">
 import { ref, watchEffect } from 'vue'
 import type { NavigationMenuItem } from '@nuxt/ui'
+import AppSidebar from '~/components/AppSidebar.vue'
+import AppHeader from '~/components/AppHeader.vue'
 
 const menu: NavigationMenuItem[] = [
   { label: 'Dashboard', icon: 'i-lucide-layout-dashboard', to: '/' },
