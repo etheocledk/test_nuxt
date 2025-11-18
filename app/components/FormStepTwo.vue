@@ -1,7 +1,32 @@
 <template>
   <div class="space-y-8">
     <UForm :state="state" class="space-y-6" @submit="onSubmit">
-      <h2 class="text-xl font-semibold mb-6">Créez votre espace de travail</h2>
+      <div class="flex flex-col gap-2">
+        <UButton
+          type="button"
+          color="white"
+          variant="ghost"
+          @click="emit('prev-step')"
+          class="flex items-center gap-2 shadow-none border-none cursor-pointer hover:underline"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+          <span>Retour</span>
+        </UButton>
+        <h2 class="text-xl font-semibold mb-4">Créez votre espace de travail</h2>
+      </div>
       <ProfilePictureForm
         label="Logo de l’entreprise"
         shape="square"
@@ -21,7 +46,7 @@
           <UTextarea
             v-model="state.description"
             placeholder="Décrivez votre entreprise brièvement :
-            
+
 Histoire et chiffres clés
 Produits ou services commercialisés
 Culture et valeurs"
@@ -38,8 +63,9 @@ Culture et valeurs"
             <UInput
               v-model="state.site"
               placeholder="votre-entreprise.com"
-              class="w-md text-lg rounded-l-none"
+              class="w-md text-lg"
               size="lg"
+              :ui="{ rounded: 'rounded-r-md rounded-l-none' }"
             />
           </div>
         </UFormField>
@@ -60,9 +86,31 @@ Culture et valeurs"
           />
         </UFormField>
       </div>
-      <div class="flex justify-between mt-8">
-        <UButton type="button" color="secondary" @click="emit('prev-step')">Retour</UButton>
-        <UButton type="submit" color="primary">Continuer</UButton>
+      <div class="flex mt-8 w-lg justify-between">
+        <UButton
+          type="button"
+          color="white"
+          variant="ghost"
+          @click="emit('prev-step')"
+          class="flex items-center gap-2 shadow-none border-none"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+          <span>Retour</span>
+        </UButton>
+        <UButton type="submit" color="primary" class="w-2/3 flex justify-center">Continuer</UButton>
       </div>
     </UForm>
   </div>
