@@ -1,8 +1,8 @@
 <template>
-  <div class="space-y-8">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
     <UForm
       :state="state"
-      class="space-y-6 bg-white dark:bg-gray-900 rounded-xl p-6"
+      class="space-y-6 bg-white dark:bg-gray-900 rounded-xl pl-20"
       @submit="onSubmit"
     >
       <div class="flex flex-col gap-2">
@@ -94,6 +94,8 @@ Culture et valeurs"
         <UButton type="submit" color="primary" class="w-2/3 flex justify-center">Continuer</UButton>
       </div>
     </UForm>
+    <LazyNuxtImg
+          provider="myProvider" src="/assets/images/entreprise.jpeg"/>
   </div>
 </template>
 

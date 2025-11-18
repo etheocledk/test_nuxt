@@ -1,8 +1,8 @@
 <template>
-  <div class="space-y-8">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
     <UForm
       :state="state"
-      class="space-y-6 bg-white dark:bg-gray-900 rounded-xl p-6"
+      class="space-y-6 bg-white dark:bg-gray-900 rounded-xl pl-20"
       @submit="onSubmit"
     >
       <h2 class="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
@@ -49,14 +49,16 @@
         </UButton>
       </div>
     </UForm>
+    <LazyNuxtImg
+          provider="myProvider" src="/assets/images/profile.jpeg"/>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n'
+import { useToast } from '#imports'
 import type { FormSubmitEvent } from '@nuxt/ui'
 import { reactive } from 'vue'
-import { useToast } from '#imports'
+import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import IconMail from '~/components/icons/IconMail.vue'
 

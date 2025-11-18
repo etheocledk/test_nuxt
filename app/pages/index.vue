@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="container mx-auto py-10 px-10 bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700"
-  >
+  <UContainer class="my-12 pt-8 bg-default rounded-2xl border-muted px-0! border">
     <SharedSeoManager />
     <UStepper v-model="step" :items="items" />
     <div class="mt-8">
@@ -9,7 +7,7 @@
       <FormStepTwo v-else-if="step === 1" @prev-step="step--" @next-step="step++" />
       <FormStepThree v-else-if="step === 2" />
     </div>
-  </div>
+  </UContainer>
 </template>
 
 <script setup lang="ts">
