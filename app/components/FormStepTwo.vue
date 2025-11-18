@@ -6,12 +6,12 @@
           type="button"
           color="white"
           variant="ghost"
-          @click="emit('prev-step')"
           class="flex items-center gap-2 shadow-none border-none cursor-pointer hover:underline"
+          @click="emit('prev-step')"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-4 w-4"
+            class="h-5 w-5"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -94,21 +94,7 @@ Culture et valeurs"
           @click="emit('prev-step')"
           class="flex items-center gap-2 shadow-none border-none"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-          <span>Retour</span>
+          <UIcon name="ph:arrow-left" class="h-5 w-5 cursor-pointer hover:underline" />  <span>Retour</span>
         </UButton>
         <UButton type="submit" color="primary" class="w-2/3 flex justify-center">Continuer</UButton>
       </div>
