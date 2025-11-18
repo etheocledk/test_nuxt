@@ -34,7 +34,8 @@ const props = defineProps<{
   menu: NavigationMenuItem[]
 }>()
 
-const translatedMenu = computed(() =>
-  props.menu.map((item) => ({ ...item, label: t(item.label ?? '') }))
-)
+const translatedMenu = computed(() => {
+  const _ = locale.value
+  return props.menu.map((item) => ({ ...item, label: t(item.label ?? '') }))
+})
 </script>
