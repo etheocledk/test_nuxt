@@ -387,7 +387,7 @@
 
   html {
     font-family: var(--font-inter);
-    font-size: 14px;
+    font-size: 16px; /* Augmenté de 14px à 16px */
     font-weight: normal;
   }
 
@@ -402,7 +402,7 @@
   }
 
   p {
-    font-size: 16px;
+    font-size: 18px; /* Augmenté de 16px à 18px */
   }
 
   ul li {
@@ -473,7 +473,7 @@
 
 /* Utilitaires personnalisés optimisés pour Tailwind v4 */
 @utility text-normal {
-  font-size: 14px;
+  font-size: 16px; /* Augmenté de 14px à 16px */
   font-weight: 400;
   line-height: 1.5;
 }
@@ -600,7 +600,7 @@
 }
 
 @utility text-title {
-  font-size: 1.125rem;
+  font-size: 1.25rem; /* Augmenté de 1.125rem à 1.25rem (20px) */
   line-height: 1.75rem;
   font-weight: 600;
 }
