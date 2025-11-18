@@ -9,40 +9,26 @@ defineProps<{
 }>()
 
 const teams = ref([{
-  label: 'Nuxt',
+  label: 'Wink',
   avatar: {
-    src: 'https://github.com/nuxt.png',
-    alt: 'Nuxt'
-  }
-}, {
-  label: 'NuxtHub',
-  avatar: {
-    src: 'https://github.com/nuxt-hub.png',
-    alt: 'NuxtHub'
-  }
-}, {
-  label: 'NuxtLabs',
-  avatar: {
-    src: 'https://github.com/nuxtlabs.png',
-    alt: 'NuxtLabs'
+    src: '/assets/images/logo.png',
+    alt: 'Wink'
   }
 }])
 const selectedTeam = ref(teams.value[0])
 
-const items = computed<DropdownMenuItem[][]>(() => {
-  return [teams.value.map(team => ({
-    ...team,
+const items = computed<DropdownMenuItem[][]>(() => [
+  [{
+    ...teams.value[0],
     onSelect() {
-      selectedTeam.value = team
+      selectedTeam.value = teams.value[0]
     }
-  })), [{
-    label: 'Create team',
-    icon: 'i-lucide-circle-plus'
-  }, {
-    label: 'Manage teams',
+  }],
+  [{
+    label: 'Manage team',
     icon: 'i-lucide-cog'
-  }]]
-})
+  }]
+])
 </script>
 
 <template>
@@ -61,7 +47,7 @@ const items = computed<DropdownMenuItem[][]>(() => {
       variant="ghost"
       block
       :square="collapsed"
-      class="data-[state=open]:bg-elevated font-semibold text-lg"
+      class="data-[state=open]:bg-elevated font-medium text-base"
       :class="[!collapsed && 'py-2']"
       :ui="{
         trailingIcon: 'text-dimmed'

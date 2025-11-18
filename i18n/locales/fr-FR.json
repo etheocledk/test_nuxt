@@ -74,11 +74,8 @@
     "uploadError": "Erreur lors du chargement de l'image."
   },
   "teamsMenu": {
-    "nuxt": "Nuxt",
-    "nuxthub": "NuxtHub",
-    "nuxtlabs": "NuxtLabs",
-    "create": "Créer une équipe",
-    "manage": "Gérer les équipes"
+    "wink": "Wink",
+    "manageteam": "Gérer l'équipe"
   },
   "seo": {
     "homeTitle": "Page d'accueil - Wink",

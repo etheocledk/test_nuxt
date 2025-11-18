@@ -74,11 +74,8 @@
     "uploadError": "Error while uploading the image."
   },
   "teamsMenu": {
-    "nuxt": "Nuxt",
-    "nuxthub": "NuxtHub",
-    "nuxtlabs": "NuxtLabs",
-    "create": "Create team",
-    "manage": "Manage teams"
+    "wink": "Wink",
+    "manageteam": "Manage team"
   },
   "seo": {
     "homeTitle": "Home - Wink",
