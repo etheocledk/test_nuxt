@@ -64,9 +64,9 @@ import { z } from 'zod'
 const { t } = useI18n()
 
 const schema = z.object({ 
-  prenom: z.string().nonempty({ message: 'Le prénom est requis' }),
-  nom: z.string().nonempty({ message: 'Le nom est requis' }),
-  email: z.email({ message: 'Email invalide' })
+  prenom: z.string().nonempty({ message: t('formStepOne.requiredFirstname') }),
+  nom: z.string().nonempty({ message: t('formStepOne.requiredLastname') }),
+  email: z.string().email({ message: t('formStepOne.invalidEmail') })
 })
 
 type FormState = z.infer<typeof schema>
@@ -79,9 +79,9 @@ const state = reactive<Partial<FormState>>({
 
 function validate(state: FormState) {
   const errors: Record<string, string> = {}
-  if (!state.prenom) errors.prenom = 'Le prénom est requis'
-  if (!state.nom) errors.nom = 'Le nom est requis'
-  if (!state.email || !state.email.includes('@')) errors.email = 'Email invalide'
+  if (!state.prenom) errors.prenom = t('formStepOne.requiredFirstname')
+  if (!state.nom) errors.nom = t('formStepOne.requiredLastname')
+  if (!state.email || !state.email.includes('@')) errors.email = t('formStepOne.invalidEmail')
   return errors
 }
 

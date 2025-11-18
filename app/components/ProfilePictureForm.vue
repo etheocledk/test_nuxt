@@ -49,7 +49,7 @@
       <!-- Contrôles -->
       <div class="flex flex-col items-start">
         <div class="space-y-2">
-          <div class="flex gap-3 items-center">
+          <div class="flex gap-1 items-center">
             <div>
               <!-- Upload button -->
               <input

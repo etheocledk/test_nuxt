@@ -16,41 +16,37 @@
             @click="emit('prev-step')"
           >
             <IconArrowLeft />
-            <span>Retour</span>
+            <span>{{ t('formStepTwo.back') }}</span>
           </UButton>
         </div>
         <h2 class="text-xl font-semibold mb-4 text-gray-900 dark:text-white">
-          Créez votre espace de travail
+          {{ t('formStepTwo.title') }}
         </h2>
       </div>
       <ProfilePictureForm
-        label="Logo de l’entreprise"
+        :label="t('formStepTwo.logo')"
         shape="square"
         icon="building"
         class="mb-6"
       />
       <div class="space-y-3">
-        <UFormField label="Nom de l'entreprise" name="nomEntreprise">
+        <UFormField :label="t('formStepTwo.companyName')" name="nomEntreprise">
           <UInput
             v-model="state.nomEntreprise"
-            placeholder="Peugeot"
+            :placeholder="t('formStepTwo.companyNamePlaceholder')"
             class="w-lg text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
             size="lg"
           />
         </UFormField>
-        <UFormField label="Description de l'entreprise" name="description">
+        <UFormField :label="t('formStepTwo.companyDescription')" name="description">
           <UTextarea
             v-model="state.description"
-            placeholder="Décrivez votre entreprise brièvement :
-
-Histoire et chiffres clés
-Produits ou services commercialisés
-Culture et valeurs"
+            :placeholder="t('formStepTwo.companyDescriptionPlaceholder')"
             class="w-lg text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
             size="lg"
           />
         </UFormField>
-        <UFormField label="Site internet" name="site">
+        <UFormField :label="t('formStepTwo.website')" name="site">
           <div class="flex">
             <span
               class="inline-flex items-center px-3 rounded-l border border-r-0 border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-300 text-sm"
@@ -58,24 +54,24 @@ Culture et valeurs"
             >
             <UInput
               v-model="state.site"
-              placeholder="votre-entreprise.com"
+              :placeholder="t('formStepTwo.websitePlaceholder')"
               class="w-md text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
               size="lg"
             />
           </div>
         </UFormField>
-        <UFormField label="Adresse du siège social" name="adresse">
+        <UFormField :label="t('formStepTwo.address')" name="adresse">
           <UInput
             v-model="state.adresse"
-            placeholder="Renseignez l’adresse de votre entreprise"
+            :placeholder="t('formStepTwo.addressPlaceholder')"
             class="w-lg text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
             size="lg"
           />
         </UFormField>
-        <UFormField label="Secteur d'activité" name="secteur">
+        <UFormField :label="t('formStepTwo.sector')" name="secteur">
           <UInput
             v-model="state.secteur"
-            placeholder="Renseignez le secteur d’activité de votre entreprise"
+            :placeholder="t('formStepTwo.sectorPlaceholder')"
             class="w-lg text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
             size="lg"
           />
@@ -90,9 +86,9 @@ Culture et valeurs"
           @click="emit('prev-step')"
         >
           <UIcon name="ph:arrow-left" class="h-5 w-5 cursor-pointer hover:underline" />
-          <span>Retour</span>
+          <span>{{ t('formStepTwo.back') }}</span>
         </UButton>
-        <UButton type="submit" color="primary" class="w-2/3 flex justify-center">Continuer</UButton>
+        <UButton type="submit" color="primary" class="w-2/3 flex justify-center">{{ t('formStepTwo.continue') }}</UButton>
       </div>
     </UForm>
     <LazyNuxtImg
