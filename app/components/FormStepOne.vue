@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 pb-10">
     <UForm
       :schema="schema"
       :state="state"
@@ -76,14 +76,6 @@ const state = reactive<Partial<FormState>>({
   nom: '',
   email: ''
 })
-
-function validate(state: FormState) {
-  const errors: Record<string, string> = {}
-  if (!state.prenom) errors.prenom = t('formStepOne.requiredFirstname')
-  if (!state.nom) errors.nom = t('formStepOne.requiredLastname')
-  if (!state.email || !state.email.includes('@')) errors.email = t('formStepOne.invalidEmail')
-  return errors
-}
 
 const emit = defineEmits(['nextStep'])
 async function onSubmit(event: FormSubmitEvent<FormState>) {
