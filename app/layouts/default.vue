@@ -1,24 +1,28 @@
 <template>
   <div class="flex min-h-screen">
-    <AppSidebar :collapsed="collapsed" :menu="menu" />
-    <div class="flex flex-col flex-1 ml-64 min-h-screen">
-      <AppHeader :theme="theme" @toggle-theme="theme = theme === 'dark' ? 'light' : 'dark'" />
-      <main
-        class="flex-1 p-8 overflow-y-auto bg-gray-50 dark:bg-gray-800 py-12"
-        style="margin-top: 56px"
+    <div class="flex flex-col flex-1 min-h-screen">
+      <UHeader title="">
+        <LazyNuxtImg
+          provider="myProvider"
+          src="/assets/images/logo.png"
+          :alt="t('header.logo_alt')"
+          class="h-10 w-auto"
+          quality="100"
+        />
+       </UHeader>
+      <UMain
+        class=" bg-accented"
       >
         <slot />
-      </main>
+      </UMain>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, watchEffect, computed } from 'vue'
-import { useI18n } from 'vue-i18n'
 import type { NavigationMenuItem } from '@nuxt/ui'
-import AppSidebar from '~/components/AppSidebar.vue'
-import AppHeader from '~/components/AppHeader.vue'
+import { computed, ref, watchEffect } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 const { t, locale } = useI18n()
 

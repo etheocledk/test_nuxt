@@ -1,8 +1,9 @@
 <template>
-  <div class="space-y-8">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
     <UForm
+      :schema="schema"
       :state="state"
-      class="space-y-6 bg-white dark:bg-gray-900 rounded-xl p-6"
+      class="space-y-6 bg-white dark:bg-gray-900 rounded-xl pl-20"
       @submit="onSubmit"
     >
       <h2 class="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
@@ -49,24 +50,32 @@
         </UButton>
       </div>
     </UForm>
+    <LazyNuxtImg
+          provider="myProvider" src="/assets/images/profile.jpeg"/>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n'
 import type { FormSubmitEvent } from '@nuxt/ui'
-import { reactive } from 'vue'
-import { useToast } from '#imports'
-import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import IconMail from '~/components/icons/IconMail.vue'
+import { z } from 'zod'
 
 const { t } = useI18n()
 
-interface FormState {
-  prenom: string
-  nom: string
-  email: string
-}
+const schema = z.object({ 
+  prenom: z.string().nonempty({ message: 'Le prénom est requis' }),
+  nom: z.string().nonempty({ message: 'Le nom est requis' }),
+  email: z.email({ message: 'Email invalide' })
+})
+
+type FormState = z.infer<typeof schema>
+
+const state = reactive<Partial<FormState>>({
+  prenom: '',
+  nom: '',
+  email: ''
+})
 
 function validate(state: FormState) {
   const errors: Record<string, string> = {}
@@ -76,22 +85,8 @@ function validate(state: FormState) {
   return errors
 }
 
-const state = reactive<FormState>({
-  prenom: '',
-  nom: '',
-  email: ''
-})
-
-const toast = useToast()
-const router = useRouter()
 const emit = defineEmits(['nextStep'])
 async function onSubmit(event: FormSubmitEvent<FormState>) {
-  const errors = validate(state)
-  if (Object.keys(errors).length > 0) {
-    toast.add({ title: 'Erreur', description: Object.values(errors).join(', '), color: 'error' })
-    return
-  }
-  toast.add({ title: 'Succès', description: 'Formulaire envoyé.', color: 'success' })
   console.log(state)
   emit('nextStep')
 }

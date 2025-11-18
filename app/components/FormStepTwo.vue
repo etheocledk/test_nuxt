@@ -1,8 +1,9 @@
 <template>
-  <div class="space-y-8">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
     <UForm
+      :schema="schema"
       :state="state"
-      class="space-y-6 bg-white dark:bg-gray-900 rounded-xl p-6"
+      class="space-y-6 bg-white dark:bg-gray-900 rounded-xl pl-20"
       @submit="onSubmit"
     >
       <div class="flex flex-col gap-2">
@@ -94,29 +95,33 @@ Culture et valeurs"
         <UButton type="submit" color="primary" class="w-2/3 flex justify-center">Continuer</UButton>
       </div>
     </UForm>
+    <LazyNuxtImg
+          provider="myProvider" src="/assets/images/entreprise.jpeg"/>
   </div>
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue'
-import { useToast } from '#imports'
 import { useI18n } from 'vue-i18n'
 import ProfilePictureForm from './ProfilePictureForm.vue'
 import IconArrowLeft from '~/components/icons/IconArrowLeft.vue'
+import { z } from 'zod'
 
 const { t } = useI18n()
 
 const emit = defineEmits(['prev-step', 'next-step'])
 
-interface FormState {
-  nomEntreprise: string
-  description: string
-  site: string
-  adresse: string
-  secteur: string
-}
+const schema = z.object({
+  nomEntreprise: z.string().min(1, t('formStepTwo.requiredCompanyName')),
+  description: z.string().min(1, t('formStepTwo.requiredDescription')),
+  site: z.string().min(1, t('formStepTwo.requiredWebsite')),
+  adresse: z.string().min(1, t('formStepTwo.requiredAddress')),
+  secteur: z.string().min(1, t('formStepTwo.requiredSector'))
+})
 
-const state = reactive<FormState>({
+type FormState = z.infer<typeof schema>
+
+
+const state = reactive<Partial<FormState>>({
   nomEntreprise: '',
   description: '',
   site: '',
@@ -124,27 +129,8 @@ const state = reactive<FormState>({
   secteur: ''
 })
 
-const toast = useToast()
-function validate(state: FormState) {
-  const errors: Record<string, string> = {}
-  if (!state.nomEntreprise) errors.nomEntreprise = t('formStepTwo.requiredCompanyName')
-  if (!state.description) errors.description = t('formStepTwo.requiredDescription')
-  if (!state.site) errors.site = t('formStepTwo.requiredWebsite')
-  if (!state.adresse) errors.adresse = t('formStepTwo.requiredAddress')
-  if (!state.secteur) errors.secteur = t('formStepTwo.requiredSector')
-  return errors
-}
-
 function onSubmit() {
-  const errors = validate(state)
-  if (Object.keys(errors).length > 0) {
-    toast.add({
-      title: t('formStepTwo.error'),
-      description: Object.values(errors).join(', '),
-      color: 'error'
-    })
-    return
-  }
+
   emit('next-step')
 }
 </script>
