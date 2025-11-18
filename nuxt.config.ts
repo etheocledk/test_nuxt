@@ -83,18 +83,12 @@ export default defineNuxtConfig({
       }
     ],
     lazy: true,
-    langDir: 'i18n/locales',
+    langDir: 'locales',
     detectBrowserLanguage: {
       fallbackLocale: 'fr-FR'
     },
     bundle: {
       optimizeTranslationDirective: false
     },
-  },
-  postcss: {
-    plugins: {
-      '@tailwindcss/postcss': {},
-      autoprefixer: {},
-    }
-  },
+  }
 })
