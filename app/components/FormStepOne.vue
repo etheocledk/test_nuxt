@@ -49,6 +49,7 @@
 import type { FormSubmitEvent } from '@nuxt/ui'
 import { reactive } from 'vue'
 import { useToast } from '#imports'
+import { useRouter } from 'vue-router'
 
 interface FormState {
   prenom: string
@@ -71,6 +72,8 @@ const state = reactive<FormState>({
 })
 
 const toast = useToast()
+const router = useRouter()
+const emit = defineEmits(['nextStep'])
 async function onSubmit(event: FormSubmitEvent<FormState>) {
   const errors = validate(state)
   if (Object.keys(errors).length > 0) {
@@ -79,5 +82,6 @@ async function onSubmit(event: FormSubmitEvent<FormState>) {
   }
   toast.add({ title: 'Succès', description: 'Formulaire envoyé.', color: 'success' })
   console.log(state)
+  emit('nextStep')
 }
 </script>
