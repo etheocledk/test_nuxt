@@ -22,7 +22,7 @@
     <!-- Colonne droite : header + main -->
     <div class="flex flex-col flex-1 ml-56 min-h-screen">
       <header class="fixed top-0 left-56 right-0 z-30 flex items-center justify-center px-6 py-3 bg-white dark:bg-gray-900/95" style="width:calc(100%-14rem)">
-        <LazyNuxtImg provider="myProvider" src="assets/images/logo.png" alt="Logo" class="h-10 w-auto" quality="100" />
+        <LazyNuxtImg provider="myProvider" src="/assets/images/logo.png" alt="Logo" class="h-10 w-auto" quality="100" />
         <div class="absolute right-6 flex items-center gap-3">
           <UButton icon="i-lucide-bell" variant="ghost" aria-label="Notifications" color="neutral" />
           <UButton icon="i-lucide-megaphone" variant="ghost" aria-label="Annonces" color="neutral" />
