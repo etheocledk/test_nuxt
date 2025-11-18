@@ -1,0 +1,8 @@
+{
+  "auth": {
+    "changePassword": {
+      "backToDashboard": "Retour au tableau de bord",
+      "confirmNewPassword": "Confirmer le nouveau mot de passe"
+    }
+  }
+}

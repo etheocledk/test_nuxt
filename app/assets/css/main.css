@@ -1,0 +1,126 @@
+@import 'tailwindcss';
+@import '@nuxt/ui';
+
+/* Import du thème Winks personnalisé */
+@import './tailwind.css';
+/* Import des utilitaires de dégradé optimisés */
+@import './gradient-utilities.css';
+/* Import des polices */
+@import '../fonts/font.css';
+
+/* Configuration des variables UI Nuxt selon la documentation officielle */
+:root {
+  /* Variables principales Nuxt UI */
+  --ui-primary: var(--ui-color-primary-500);
+  --ui-secondary: var(--ui-color-secondary-500);
+  --ui-warning: var(--ui-color-warning-500);
+  --ui-success: var(--ui-color-success-500);
+  --ui-info: var(--ui-color-info-500);
+  --ui-error: var(--ui-color-error-500);
+
+  /* Couleurs Winks mappées vers les variables Nuxt UI */
+  --ui-color-primary-50: #e6e6ff;
+  --ui-color-primary-100: #d9d9ff;
+  --ui-color-primary-200: #b0b0ff;
+  --ui-color-primary-300: #8080ff;
+  --ui-color-primary-400: #4d4dff;
+  --ui-color-primary-500: #1b7cd8; /* primary-normal Winks */
+  --ui-color-primary-600: #0000e6;
+  --ui-color-primary-700: #0000cc;
+  --ui-color-primary-800: #0000bf;
+  --ui-color-primary-900: #000099;
+  --ui-color-primary-950: #081b8c;
+
+  --ui-color-secondary-50: #fffdf0;
+  --ui-color-secondary-100: #fffbe9;
+  --ui-color-secondary-200: #fff7d1;
+  --ui-color-secondary-300: #fff0b3;
+  --ui-color-secondary-400: #ffe980;
+  --ui-color-secondary-500: #ffe66b; /* secondary-normal Winks */
+  --ui-color-secondary-600: #e6cf60;
+  --ui-color-secondary-700: #ccb856;
+  --ui-color-secondary-800: #bfad50;
+  --ui-color-secondary-900: #998a40;
+  --ui-color-secondary-950: #595125;
+
+  --ui-color-warning-50: #fff0e6;
+  --ui-color-warning-100: #ffe8d9;
+  --ui-color-warning-200: #ffd0b0;
+  --ui-color-warning-300: #ffb380;
+  --ui-color-warning-400: #ff9933;
+  --ui-color-warning-500: #ff6600; /* tertiary-normal Winks */
+  --ui-color-warning-600: #e65c00;
+  --ui-color-warning-700: #cc5200;
+  --ui-color-warning-800: #bf4d00;
+  --ui-color-warning-900: #993d00;
+  --ui-color-warning-950: #592400;
+
+  /* Variables neutres pour les fonds et textes */
+  --ui-color-neutral-50: #f9fafb;
+  --ui-color-neutral-100: #f3f4f6;
+  --ui-color-neutral-200: #e5e7eb;
+  --ui-color-neutral-300: #d1d5db;
+  --ui-color-neutral-400: #9ca3af;
+  --ui-color-neutral-500: #6b7280;
+  --ui-color-neutral-600: #4b5563;
+  --ui-color-neutral-700: #374151;
+  --ui-color-neutral-800: #1f2937;
+  --ui-color-neutral-900: #111827;
+  --ui-color-neutral-950: #030712;
+
+  /* Variables success, info, error standard */
+  --ui-color-success-500: #10b981;
+  --ui-color-info-500: #3b82f6;
+  --ui-color-error-500: #ef4444;
+}
+
+.vue-tel-input {
+  height: 34px !important;
+  padding: auto;
+}
+
+.vue-tel-input:focus {
+  box-shadow: none !important;
+}
+
+.vti__dropdown,
+.vti__dropdown-item,
+.vti__dropdown-list {
+  background-color: var(--ui-bg-muted) !important;
+}
+
+.vti__dropdown-item:hover {
+  background-color: var(--ui-bg-accented) !important;
+}
+
+.vti__dropdown-list {
+  z-index: 1000000 !important;
+}
+
+.multiselect {
+  background-color: var(--ui-bg-muted) !important;
+  border-color: var(--ui-bg-accented) !important;
+  --ms-ring-color: var(--ui-bg-muted);
+}
+
+.multiselect-search {
+  --ms-bg: var(--ui-bg-muted);
+}
+
+.multiselect-dropdown {
+  --ms-dropdown-bg: var(--ui-bg-muted);
+  --ms-dropdown-border-color: var(--ui-bg-muted);
+}
+
+.multiselect-options {
+  --ms-option-bg-pointed: var(--ui-bg-accented);
+  --ms-option-color-pointed: var(--ui-bg-neutral);
+  --ms-option-bg-selected: var(--ui-bg-accented);
+  --ms-option-color-selected: var(--ui-bg-neutral);
+  --ms-option-bg-disabled: var(--ui-bg-accented);
+  --ms-option-color-disabled: var(--ui-bg-neutral);
+  --ms-option-bg-selected-pointed: var(--ui-bg-accented);
+  --ms-option-color-selected-pointed: var(--ui-bg-neutral);
+  --ms-option-bg-selected-disabled: var(--ui-bg-accented);
+  --ms-empty-color: var(--ui-bg-neutral);
+}

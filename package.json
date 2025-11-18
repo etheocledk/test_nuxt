@@ -1,0 +1,60 @@
+{
+  "name": "test-nuxt",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "start": "nuxt start",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "@google/model-viewer": "^4.1.0",
+    "@nuxt/eslint": "^1.4.1",
+    "@nuxt/image": "^1.10.0",
+    "@nuxt/ui": "^3.1.3",
+    "@nuxtjs/i18n": "^9.5.4",
+    "@nuxtjs/robots": "^5.2.10",
+    "@nuxtjs/sitemap": "^7.3.0",
+    "@pinia/nuxt": "^0.11.2",
+    "@tailwindcss/vite": "^4.1.8",
+    "@vueform/multiselect": "^2.6.11",
+    "@vueuse/core": "^13.2.0",
+    "@vueuse/nuxt": "^13.2.0",
+    "country-state-city": "^3.2.1",
+    "crypto-js": "^4.2.0",
+    "eslint": "^9.27.0",
+    "flag-icons": "^7.5.0",
+    "nuxt": "^4.2.1",
+    "nuxt-zod-i18n": "^1.12.1",
+    "sharp": "^0.34.2",
+    "swiper": "^11.2.8",
+    "tailwindcss": "^4.1.8",
+    "v-phone-input": "^5.0.0",
+    "vue": "^3.5.14",
+    "vue-pdf-embed": "^2.1.3",
+    "vue-router": "^4.5.1",
+    "vue-tel-input": "^9.3.0"
+  },
+  "packageManager": "pnpm@10.11.0+sha512.6540583f41cc5f628eb3d9773ecee802f4f9ef9923cc45b69890fb47991d4b092964694ec3a4f738a420c918a333062c8b925d312f42e4f0c263eb603551f977",
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.17",
+    "@types/crypto-js": "^4.2.2",
+    "@types/node": "^24.10.1",
+    "@types/vue-tel-input": "^2.1.7",
+    "prettier": "^3.5.3",
+    "typescript": "^5.9.3",
+    "vue-tsc": "^3.1.4"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@tailwindcss/oxide",
+      "sharp"
+    ]
+  }
+}

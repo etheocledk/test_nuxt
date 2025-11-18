@@ -1,0 +1,839 @@
+@import 'tailwindcss';
+@import './dark-mode.css';
+@import './button.css';
+
+@theme {
+  /* === FONTS === */
+  --font-inter: 'Inter', sans-serif;
+  --font-helvetica: 'Helvetica', sans-serif;
+  --font-playfair: 'Playfair Display', serif;
+  --font-roboto: 'Roboto', sans-serif;
+  --font-roboto-slab: 'Roboto Slab', serif;
+
+  /* === SPACING SYSTEM === */
+  --spacing-xxs: 0.25rem; /* 4px */
+  --spacing-xs: 0.5rem; /* 8px */
+  --spacing-sm: 1rem; /* 16px */
+  --spacing-md: 1.5rem; /* 24px */
+  --spacing-lg: 2rem; /* 32px */
+  --spacing-xl: 2.5rem; /* 40px */
+  --spacing-2xl: 3rem; /* 48px */
+  --spacing-3xl: 3.5rem; /* 56px */
+  --spacing-4xl: 4rem; /* 64px */
+  --spacing-5xl: 4.5rem; /* 72px */
+  --spacing-6xl: 5rem; /* 80px */
+
+  /* === SIZE SYSTEM === */
+  --size-3xs: 16rem;
+  --size-2xs: 18rem;
+  --size-xs: 20rem;
+  --size-sm: 24rem;
+  --size-md: 28rem;
+  --size-lg: 32rem;
+  --size-xl: 36rem;
+  --size-2xl: 42rem;
+  --size-3xl: 48rem;
+  --size-4xl: 56rem;
+  --size-5xl: 64rem;
+  --size-6xl: 72rem;
+  --size-7xl: 80rem;
+
+  /* === BREAKPOINTS === */
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  /* === BRAND COLORS - PRIMARY (Blue #1b7cd8) === */
+  --color-primary-50: #eff8ff;
+  --color-primary-100: #dbeefe;
+  --color-primary-200: #bfe3fd;
+  --color-primary-300: #93d3fc;
+  --color-primary-400: #60bcf8;
+  --color-primary-500: #1b7cd8;
+  --color-primary-600: #1668b8;
+  --color-primary-700: #145794;
+  --color-primary-800: #16497a;
+  --color-primary-900: #183e65;
+  --color-primary-950: #102543;
+
+  /* === BRAND COLORS - SECONDARY (Yellow #ffe66b) === */
+  --color-secondary-50: #fffbeb;
+  --color-secondary-100: #fef3c7;
+  --color-secondary-200: #fde68a;
+  --color-secondary-300: #fcd34d;
+  --color-secondary-400: #fbbf24;
+  --color-secondary-500: #ffe66b;
+  --color-secondary-600: #f59e0b;
+  --color-secondary-700: #d97706;
+  --color-secondary-800: #b45309;
+  --color-secondary-900: #92400e;
+  --color-secondary-950: #78350f;
+
+  /* === BRAND COLORS - TERTIARY (Orange #ff6600) === */
+  --color-tertiary-50: #fff7ed;
+  --color-tertiary-100: #ffedd5;
+  --color-tertiary-200: #fed7aa;
+  --color-tertiary-300: #fdba74;
+  --color-tertiary-400: #fb923c;
+  --color-tertiary-500: #ff6600;
+  --color-tertiary-600: #ea580c;
+  --color-tertiary-700: #c2410c;
+  --color-tertiary-800: #9a3412;
+  --color-tertiary-900: #7c2d12;
+  --color-tertiary-950: #431407;
+
+  /* === SEMANTIC COLORS === */
+  /* Success (Green) */
+  --color-success-50: #f0fdf4;
+  --color-success-100: #dcfce7;
+  --color-success-200: #bbf7d0;
+  --color-success-300: #86efac;
+  --color-success-400: #4ade80;
+  --color-success-500: #22c55e;
+  --color-success-600: #16a34a;
+  --color-success-700: #15803d;
+  --color-success-800: #166534;
+  --color-success-900: #14532d;
+  --color-success-950: #052e16;
+
+  /* Warning (Amber) */
+  --color-warning-50: #fffbeb;
+  --color-warning-100: #fef3c7;
+  --color-warning-200: #fde68a;
+  --color-warning-300: #fcd34d;
+  --color-warning-400: #fbbf24;
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #d97706;
+  --color-warning-700: #b45309;
+  --color-warning-800: #92400e;
+  --color-warning-900: #78350f;
+  --color-warning-950: #451a03;
+
+  /* Error (Red) */
+  --color-error-50: #fef2f2;
+  --color-error-100: #fee2e2;
+  --color-error-200: #fecaca;
+  --color-error-300: #fca5a5;
+  --color-error-400: #f87171;
+  --color-error-500: #ef4444;
+  --color-error-600: #dc2626;
+  --color-error-700: #b91c1c;
+  --color-error-800: #991b1b;
+  --color-error-900: #7f1d1d;
+  --color-error-950: #450a0a;
+
+  /* Info (Blue) */
+  --color-info-50: #eff6ff;
+  --color-info-100: #dbeafe;
+  --color-info-200: #bfdbfe;
+  --color-info-300: #93c5fd;
+  --color-info-400: #60a5fa;
+  --color-info-500: #3b82f6;
+  --color-info-600: #2563eb;
+  --color-info-700: #1d4ed8;
+  --color-info-800: #1e40af;
+  --color-info-900: #1e3a8a;
+  --color-info-950: #172554;
+
+  /* === NEUTRAL COLORS === */
+  --color-neutral-50: #f9fafb;
+  --color-neutral-100: #f3f4f6;
+  --color-neutral-200: #e5e7eb;
+  --color-neutral-300: #d1d5db;
+  --color-neutral-400: #9ca3af;
+  --color-neutral-500: #6b7280;
+  --color-neutral-600: #4b5563;
+  --color-neutral-700: #374151;
+  --color-neutral-800: #1f2937;
+  --color-neutral-900: #111827;
+  --color-neutral-950: #030712;
+
+  /* === LEGACY COLOR VARIABLES === */
+  /* Primary state variables */
+  --color-primary-light: var(--color-primary-100);
+  --color-primary-light-hover: var(--color-primary-200);
+  --color-primary-light-active: var(--color-primary-300);
+  --color-primary-normal: var(--color-primary-500);
+  --color-primary-normal-hover: var(--color-primary-600);
+  --color-primary-normal-active: var(--color-primary-700);
+  --color-primary-dark: var(--color-primary-800);
+  --color-primary-dark-hover: var(--color-primary-900);
+  --color-primary-dark-active: var(--color-primary-950);
+  --color-primary-darker: var(--color-primary-950);
+
+  /* Secondary state variables */
+  --color-secondary-light: var(--color-secondary-100);
+  --color-secondary-light-hover: var(--color-secondary-200);
+  --color-secondary-light-active: var(--color-secondary-300);
+  --color-secondary-normal: var(--color-secondary-500);
+  --color-secondary-normal-hover: var(--color-secondary-600);
+  --color-secondary-normal-active: var(--color-secondary-700);
+  --color-secondary-dark: var(--color-secondary-800);
+  --color-secondary-dark-hover: var(--color-secondary-900);
+  --color-secondary-dark-active: var(--color-secondary-950);
+  --color-secondary-darker: var(--color-secondary-950);
+
+  /* Tertiary state variables */
+  --color-tertiary-light: var(--color-tertiary-100);
+  --color-tertiary-light-hover: var(--color-tertiary-200);
+  --color-tertiary-light-active: var(--color-tertiary-300);
+  --color-tertiary-normal: var(--color-tertiary-500);
+  --color-tertiary-normal-hover: var(--color-tertiary-600);
+  --color-tertiary-normal-active: var(--color-tertiary-700);
+  --color-tertiary-dark: var(--color-tertiary-800);
+  --color-tertiary-dark-hover: var(--color-tertiary-900);
+  --color-tertiary-dark-active: var(--color-tertiary-950);
+  --color-tertiary-darker: var(--color-tertiary-950);
+
+  /* Black state variables */
+  --color-black-light: #f3f4f6;
+  --color-black-light-hover: #e5e7eb;
+  --color-black-light-active: #d1d5db;
+  --color-black-normal: #111827;
+  --color-black-normal-hover: #1f2937;
+  --color-black-normal-active: #374151;
+  --color-black-dark: #000000;
+  --color-black-dark-hover: #000000;
+  --color-black-darker: #000000;
+
+  /* App-White state variables */
+  --color-app-white-light: #ffffff;
+  --color-app-white-light-hover: #ffffff;
+  --color-app-white-light-active: #ffffff;
+  --color-app-white-normal: #ffffff;
+  --color-app-white-normal-hover: #e6e6e6;
+  --color-app-white-normal-active: #cccccc;
+  --color-app-white-dark: #bfbfbf;
+  --color-app-white-dark-hover: #999999;
+  --color-app-white-dark-active: #737373;
+  --color-app-white-darker: #595959;
+  --color-app-white-opaque: #f5f5f5;
+
+  /* === DIMENSION UTILITIES === */
+  /* Container sizes */
+  --container-3xs: var(--size-3xs);
+  --container-2xs: var(--size-2xs);
+  --container-xs: var(--size-xs);
+  --container-sm: var(--size-sm);
+  --container-md: var(--size-md);
+  --container-lg: var(--size-lg);
+  --container-xl: var(--size-xl);
+  --container-2xl: var(--size-2xl);
+  --container-3xl: var(--size-3xl);
+  --container-4xl: var(--size-4xl);
+  --container-5xl: var(--size-5xl);
+  --container-6xl: var(--size-6xl);
+  --container-7xl: var(--size-7xl);
+
+  /* Width utilities */
+  --width-3xs: var(--size-3xs);
+  --width-2xs: var(--size-2xs);
+  --width-xs: var(--size-xs);
+  --width-sm: var(--size-sm);
+  --width-md: var(--size-md);
+  --width-lg: var(--size-lg);
+  --width-xl: var(--size-xl);
+  --width-2xl: var(--size-2xl);
+  --width-3xl: var(--size-3xl);
+  --width-4xl: var(--size-4xl);
+  --width-5xl: var(--size-5xl);
+  --width-6xl: var(--size-6xl);
+  --width-7xl: var(--size-7xl);
+
+  /* Min-width utilities */
+  --min-width-3xs: var(--size-3xs);
+  --min-width-2xs: var(--size-2xs);
+  --min-width-xs: var(--size-xs);
+  --min-width-sm: var(--size-sm);
+  --min-width-md: var(--size-md);
+  --min-width-lg: var(--size-lg);
+  --min-width-xl: var(--size-xl);
+  --min-width-2xl: var(--size-2xl);
+  --min-width-3xl: var(--size-3xl);
+  --min-width-4xl: var(--size-4xl);
+  --min-width-5xl: var(--size-5xl);
+  --min-width-6xl: var(--size-6xl);
+  --min-width-7xl: var(--size-7xl);
+
+  /* Max-width utilities */
+  --max-width-3xs: var(--size-3xs);
+  --max-width-2xs: var(--size-2xs);
+  --max-width-xs: var(--size-xs);
+  --max-width-sm: var(--size-sm);
+  --max-width-md: var(--size-md);
+  --max-width-lg: var(--size-lg);
+  --max-width-xl: var(--size-xl);
+  --max-width-2xl: var(--size-2xl);
+  --max-width-3xl: var(--size-3xl);
+  --max-width-4xl: var(--size-4xl);
+  --max-width-5xl: var(--size-5xl);
+  --max-width-6xl: var(--size-6xl);
+  --max-width-7xl: var(--size-7xl);
+
+  /* Height utilities */
+  --height-3xs: var(--size-3xs);
+  --height-2xs: var(--size-2xs);
+  --height-xs: var(--size-xs);
+  --height-sm: var(--size-sm);
+  --height-md: var(--size-md);
+  --height-lg: var(--size-lg);
+  --height-xl: var(--size-xl);
+  --height-2xl: var(--size-2xl);
+  --height-3xl: var(--size-3xl);
+  --height-4xl: var(--size-4xl);
+  --height-5xl: var(--size-5xl);
+  --height-6xl: var(--size-6xl);
+  --height-7xl: var(--size-7xl);
+
+  /* Min-height utilities */
+  --min-height-3xs: var(--size-3xs);
+  --min-height-2xs: var(--size-2xs);
+  --min-height-xs: var(--size-xs);
+  --min-height-sm: var(--size-sm);
+  --min-height-md: var(--size-md);
+  --min-height-lg: var(--size-lg);
+  --min-height-xl: var(--size-xl);
+  --min-height-2xl: var(--size-2xl);
+  --min-height-3xl: var(--size-3xl);
+  --min-height-4xl: var(--size-4xl);
+  --min-height-5xl: var(--size-5xl);
+  --min-height-6xl: var(--size-6xl);
+  --min-height-7xl: var(--size-7xl);
+
+  /* Max-height utilities */
+  --max-height-3xs: var(--size-3xs);
+  --max-height-2xs: var(--size-2xs);
+  --max-height-xs: var(--size-xs);
+  --max-height-sm: var(--size-sm);
+  --max-height-md: var(--size-md);
+  --max-height-lg: var(--size-lg);
+  --max-height-xl: var(--size-xl);
+  --max-height-2xl: var(--size-2xl);
+  --max-height-3xl: var(--size-3xl);
+  --max-height-4xl: var(--size-4xl);
+  --max-height-5xl: var(--size-5xl);
+  --max-height-6xl: var(--size-6xl);
+  --max-height-7xl: var(--size-7xl);
+}
+
+/* === DARK MODE THEME === */
+.dark {
+  /* Primary colors in dark mode */
+  --color-primary-light: var(--color-primary-800);
+  --color-primary-light-hover: var(--color-primary-700);
+  --color-primary-light-active: var(--color-primary-600);
+  --color-primary-normal: var(--color-primary-400);
+  --color-primary-normal-hover: var(--color-primary-300);
+  --color-primary-normal-active: var(--color-primary-200);
+  --color-primary-dark: var(--color-primary-300);
+  --color-primary-dark-hover: var(--color-primary-200);
+  --color-primary-dark-active: var(--color-primary-100);
+  --color-primary-darker: var(--color-primary-100);
+
+  /* Secondary colors in dark mode */
+  --color-secondary-light: var(--color-secondary-800);
+  --color-secondary-light-hover: var(--color-secondary-700);
+  --color-secondary-light-active: var(--color-secondary-600);
+  --color-secondary-normal: var(--color-secondary-400);
+  --color-secondary-normal-hover: var(--color-secondary-300);
+  --color-secondary-normal-active: var(--color-secondary-200);
+  --color-secondary-dark: var(--color-secondary-300);
+  --color-secondary-dark-hover: var(--color-secondary-200);
+  --color-secondary-dark-active: var(--color-secondary-100);
+  --color-secondary-darker: var(--color-secondary-100);
+
+  /* Tertiary colors in dark mode */
+  --color-tertiary-light: var(--color-tertiary-800);
+  --color-tertiary-light-hover: var(--color-tertiary-700);
+  --color-tertiary-light-active: var(--color-tertiary-600);
+  --color-tertiary-normal: var(--color-tertiary-400);
+  --color-tertiary-normal-hover: var(--color-tertiary-300);
+  --color-tertiary-normal-active: var(--color-tertiary-200);
+  --color-tertiary-dark: var(--color-tertiary-300);
+  --color-tertiary-dark-hover: var(--color-tertiary-200);
+  --color-tertiary-dark-active: var(--color-tertiary-100);
+  --color-tertiary-darker: var(--color-tertiary-100);
+
+  /* Text colors in dark mode */
+  --color-black-normal: var(--color-neutral-100);
+  --color-black-light: var(--color-neutral-50);
+  --color-black-dark: var(--color-neutral-300);
+  --color-black-normal-hover: var(--color-neutral-200);
+  --color-black-normal-active: var(--color-neutral-300);
+
+  /* Background colors in dark mode */
+  --color-app-white-normal: var(--color-neutral-900);
+  --color-app-white-light: var(--color-neutral-800);
+  --color-app-white-dark: var(--color-neutral-950);
+  --color-app-white-normal-hover: var(--color-neutral-800);
+  --color-app-white-normal-active: var(--color-neutral-700);
+  --color-app-white-opaque: var(--color-neutral-900);
+}
+
+/* Base styles optimisés */
+@layer base {
+  *,
+  ::after,
+  ::before {
+    position: relative;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    
+  }
+
+  html {
+    font-family: var(--font-inter);
+    font-size: 14px;
+    font-weight: normal;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  a,
+  a:active,
+  a:hover {
+    text-decoration: none;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  ul li {
+    list-style: none;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Scrollbar personnalisée */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: white;
+    border-radius: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgb(168, 168, 168);
+    border-radius: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(168, 168, 168);
+  }
+
+  ::-webkit-scrollbar-horizontal {
+    height: 12px;
+  }
+
+  /* Scrollbar personnalisée pour les éléments avec la classe custom-scrollbar */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(156, 163, 175, 0.6) transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 12px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, rgba(156, 163, 175, 0.6), rgba(107, 114, 128, 0.8));
+    border-radius: 12px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, rgba(107, 114, 128, 0.8), rgba(75, 85, 99, 0.9));
+    transform: scale(1.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+}
+
+/* Utilitaires personnalisés optimisés pour Tailwind v4 */
+@utility text-normal {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+@utility active {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-normal);
+  border-radius: 0.375rem;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Classes de gradient personnalisées optimisées */
+@utility text-gradient-primary {
+  background: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-700));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@utility text-gradient-secondary {
+  background: linear-gradient(135deg, var(--color-secondary-500), var(--color-secondary-700));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@utility text-gradient-tertiary {
+  background: linear-gradient(135deg, var(--color-tertiary-500), var(--color-tertiary-700));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@utility bg-gradient-primary {
+  background: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-600));
+}
+
+@utility bg-gradient-primary-soft {
+  background: linear-gradient(135deg, var(--color-primary-100), var(--color-primary-200));
+}
+
+@utility bg-gradient-secondary {
+  background: linear-gradient(135deg, var(--color-secondary-500), var(--color-secondary-600));
+}
+
+@utility bg-gradient-secondary-soft {
+  background: linear-gradient(135deg, var(--color-secondary-100), var(--color-secondary-200));
+}
+
+@utility bg-gradient-tertiary {
+  background: linear-gradient(135deg, var(--color-tertiary-500), var(--color-tertiary-600));
+}
+
+@utility bg-gradient-tertiary-soft {
+  background: linear-gradient(135deg, var(--color-tertiary-100), var(--color-tertiary-200));
+}
+
+/* Dégradés pour les notifications */
+@utility bg-gradient-success {
+  background: linear-gradient(135deg, var(--color-success-500), var(--color-success-600));
+}
+
+@utility bg-gradient-warning {
+  background: linear-gradient(135deg, var(--color-warning-500), var(--color-warning-600));
+}
+
+@utility bg-gradient-error {
+  background: linear-gradient(135deg, var(--color-error-500), var(--color-error-600));
+}
+
+@utility bg-gradient-info {
+  background: linear-gradient(135deg, var(--color-info-500), var(--color-info-600));
+}
+
+/* Dégradés subtils pour les arrière-plans */
+@utility bg-gradient-neutral-light {
+  background: linear-gradient(135deg, var(--color-neutral-50), var(--color-neutral-100));
+}
+
+@utility bg-gradient-neutral-dark {
+  background: linear-gradient(135deg, var(--color-neutral-800), var(--color-neutral-900));
+}
+
+/* Utilitaires pour les scrollbars personnalisées */
+@utility custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(156 163 175) rgb(243 244 246);
+}
+
+/* Animations optimisées */
+@utility animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@utility animate-slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Utilitaires de typographie */
+@utility text-subtitle {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+}
+
+@utility text-title {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+}
+
+@utility line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+}
+
+@utility line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+@utility line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+
+@utility font-helvetica {
+  font-family: var(--font-helvetica);
+}
+
+@utility caption {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+/* Utilitaires responsifs pour le dashboard */
+@utility responsive-sidebar {
+  @media (max-width: 1023px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 50;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  @media (max-width: 1023px) {
+    &.open {
+      transform: translateX(0);
+    }
+  }
+}
+
+@utility mobile-header {
+  @media (max-width: 640px) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+}
+
+@utility mobile-container {
+  @media (max-width: 640px) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+/* Amélioration du focus pour l'accessibilité */
+@utility focus-ring {
+  &:focus-visible {
+    outline: 2px solid var(--color-primary-normal);
+    outline-offset: 2px;
+    border-radius: 0.375rem;
+  }
+}
+
+/* Transitions fluides pour les éléments interactifs */
+@utility smooth-transition {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Classes pour les états de hover améliorés */
+@utility hover-lift {
+  transition:
+    transform 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* === GRID SYSTEM === */
+/* Classes de grille étendues pour le système de formulaire dynamique */
+
+/* Grid template columns - étend Tailwind pour supporter plus de colonnes */
+@utility grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
+@utility grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+@utility grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+@utility grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+@utility grid-cols-5 { grid-template-columns: repeat(5, 1fr); }
+@utility grid-cols-6 { grid-template-columns: repeat(6, 1fr); }
+@utility grid-cols-7 { grid-template-columns: repeat(7, 1fr); }
+@utility grid-cols-8 { grid-template-columns: repeat(8, 1fr); }
+@utility grid-cols-9 { grid-template-columns: repeat(9, 1fr); }
+@utility grid-cols-10 { grid-template-columns: repeat(10, 1fr); }
+@utility grid-cols-11 { grid-template-columns: repeat(11, 1fr); }
+@utility grid-cols-12 { grid-template-columns: repeat(12, 1fr); }
+
+/* Column span - étend Tailwind */
+@utility col-span-1 { grid-column: span 1 / span 1; }
+@utility col-span-2 { grid-column: span 2 / span 2; }
+@utility col-span-3 { grid-column: span 3 / span 3; }
+@utility col-span-4 { grid-column: span 4 / span 4; }
+@utility col-span-5 { grid-column: span 5 / span 5; }
+@utility col-span-6 { grid-column: span 6 / span 6; }
+@utility col-span-7 { grid-column: span 7 / span 7; }
+@utility col-span-8 { grid-column: span 8 / span 8; }
+@utility col-span-9 { grid-column: span 9 / span 9; }
+@utility col-span-10 { grid-column: span 10 / span 10; }
+@utility col-span-11 { grid-column: span 11 / span 11; }
+@utility col-span-12 { grid-column: span 12 / span 12; }
+@utility col-span-full { grid-column: 1 / -1; }
+
+/* Column start positions */
+@utility col-start-1 { grid-column-start: 1; }
+@utility col-start-2 { grid-column-start: 2; }
+@utility col-start-3 { grid-column-start: 3; }
+@utility col-start-4 { grid-column-start: 4; }
+@utility col-start-5 { grid-column-start: 5; }
+@utility col-start-6 { grid-column-start: 6; }
+@utility col-start-7 { grid-column-start: 7; }
+@utility col-start-8 { grid-column-start: 8; }
+@utility col-start-9 { grid-column-start: 9; }
+@utility col-start-10 { grid-column-start: 10; }
+@utility col-start-11 { grid-column-start: 11; }
+@utility col-start-12 { grid-column-start: 12; }
+@utility col-start-13 { grid-column-start: 13; }
+
+/* === GRID SYSTEM === */
+/* Classes de grille étendues pour le système de formulaire dynamique */
+
+/* Responsive grid columns pour sm: (min-width: 640px) */
+@media (min-width: 640px) {
+  .sm\:grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
+  .sm\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .sm\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .sm\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+  .sm\:grid-cols-5 { grid-template-columns: repeat(5, 1fr); }
+  .sm\:grid-cols-6 { grid-template-columns: repeat(6, 1fr); }
+  .sm\:grid-cols-7 { grid-template-columns: repeat(7, 1fr); }
+  .sm\:grid-cols-8 { grid-template-columns: repeat(8, 1fr); }
+  .sm\:grid-cols-9 { grid-template-columns: repeat(9, 1fr); }
+  .sm\:grid-cols-10 { grid-template-columns: repeat(10, 1fr); }
+  .sm\:grid-cols-11 { grid-template-columns: repeat(11, 1fr); }
+  .sm\:grid-cols-12 { grid-template-columns: repeat(12, 1fr); }
+
+  .sm\:col-span-1 { grid-column: span 1 / span 1; }
+  .sm\:col-span-2 { grid-column: span 2 / span 2; }
+  .sm\:col-span-3 { grid-column: span 3 / span 3; }
+  .sm\:col-span-4 { grid-column: span 4 / span 4; }
+  .sm\:col-span-5 { grid-column: span 5 / span 5; }
+  .sm\:col-span-6 { grid-column: span 6 / span 6; }
+  .sm\:col-span-7 { grid-column: span 7 / span 7; }
+  .sm\:col-span-8 { grid-column: span 8 / span 8; }
+  .sm\:col-span-9 { grid-column: span 9 / span 9; }
+  .sm\:col-span-10 { grid-column: span 10 / span 10; }
+  .sm\:col-span-11 { grid-column: span 11 / span 11; }
+  .sm\:col-span-12 { grid-column: span 12 / span 12; }
+}
+
+/* Responsive grid columns pour md: (min-width: 768px) */
+@media (min-width: 768px) {
+  .md\:grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
+  .md\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .md\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .md\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+  .md\:grid-cols-5 { grid-template-columns: repeat(5, 1fr); }
+  .md\:grid-cols-6 { grid-template-columns: repeat(6, 1fr); }
+  .md\:grid-cols-7 { grid-template-columns: repeat(7, 1fr); }
+  .md\:grid-cols-8 { grid-template-columns: repeat(8, 1fr); }
+  .md\:grid-cols-9 { grid-template-columns: repeat(9, 1fr); }
+  .md\:grid-cols-10 { grid-template-columns: repeat(10, 1fr); }
+  .md\:grid-cols-11 { grid-template-columns: repeat(11, 1fr); }
+  .md\:grid-cols-12 { grid-template-columns: repeat(12, 1fr); }
+
+  .md\:col-span-1 { grid-column: span 1 / span 1; }
+  .md\:col-span-2 { grid-column: span 2 / span 2; }
+  .md\:col-span-3 { grid-column: span 3 / span 3; }
+  .md\:col-span-4 { grid-column: span 4 / span 4; }
+  .md\:col-span-5 { grid-column: span 5 / span 5; }
+  .md\:col-span-6 { grid-column: span 6 / span 6; }
+  .md\:col-span-7 { grid-column: span 7 / span 7; }
+  .md\:col-span-8 { grid-column: span 8 / span 8; }
+  .md\:col-span-9 { grid-column: span 9 / span 9; }
+  .md\:col-span-10 { grid-column: span 10 / span 10; }
+  .md\:col-span-11 { grid-column: span 11 / span 11; }
+  .md\:col-span-12 { grid-column: span 12 / span 12; }
+}
+
+/* Responsive grid columns pour lg: (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .lg\:grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
+  .lg\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .lg\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .lg\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+  .lg\:grid-cols-5 { grid-template-columns: repeat(5, 1fr); }
+  .lg\:grid-cols-6 { grid-template-columns: repeat(6, 1fr); }
+  .lg\:grid-cols-7 { grid-template-columns: repeat(7, 1fr); }
+  .lg\:grid-cols-8 { grid-template-columns: repeat(8, 1fr); }
+  .lg\:grid-cols-9 { grid-template-columns: repeat(9, 1fr); }
+  .lg\:grid-cols-10 { grid-template-columns: repeat(10, 1fr); }
+  .lg\:grid-cols-11 { grid-template-columns: repeat(11, 1fr); }
+  .lg\:grid-cols-12 { grid-template-columns: repeat(12, 1fr); }
+
+  .lg\:col-span-1 { grid-column: span 1 / span 1; }
+  .lg\:col-span-2 { grid-column: span 2 / span 2; }
+  .lg\:col-span-3 { grid-column: span 3 / span 3; }
+  .lg\:col-span-4 { grid-column: span 4 / span 4; }
+  .lg\:col-span-5 { grid-column: span 5 / span 5; }
+  .lg\:col-span-6 { grid-column: span 6 / span 6; }
+  .lg\:col-span-7 { grid-column: span 7 / span 7; }
+  .lg\:col-span-8 { grid-column: span 8 / span 8; }
+  .lg\:col-span-9 { grid-column: span 9 / span 9; }
+  .lg\:col-span-10 { grid-column: span 10 / span 10; }
+  .lg\:col-span-11 { grid-column: span 11 / span 11; }
+  .lg\:col-span-12 { grid-column: span 12 / span 12; }
+}

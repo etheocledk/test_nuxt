@@ -1,0 +1,37 @@
+/* Variables optimisées pour le mode sombre - Tailwind v4 */
+/* Mode sombre activé uniquement avec la classe .dark */
+
+.dark {
+  /* Primary Colors - Mode sombre optimisé */
+  --color-primary-light: #1e3a8a;
+  --color-primary-normal: #3b82f6;
+  --color-primary-dark: #60a5fa;
+  --color-primary-normal-hover: #2563eb;
+  --color-primary-normal-active: #1d4ed8;
+
+  /* Secondary Colors - Mode sombre optimisé */
+  --color-secondary-light: #451a03;
+  --color-secondary-normal: #f59e0b;
+  --color-secondary-dark: #fbbf24;
+  --color-secondary-normal-hover: #d97706;
+  --color-secondary-normal-active: #b45309;
+
+  /* Tertiary Colors - Mode sombre optimisé */
+  --color-tertiary-light: #431407;
+  --color-tertiary-normal: #f97316;
+  --color-tertiary-dark: #fb923c;
+  --color-tertiary-normal-hover: #ea580c;
+  --color-tertiary-normal-active: #c2410c;
+
+  /* Couleurs neutres optimisées pour la lisibilité */
+  --color-black-normal: #f9fafb;
+  --color-black-light: #f3f4f6;
+  --color-black-dark: #e5e7eb;
+  --color-black-normal-hover: #f3f4f6;
+  --color-black-normal-active: #e5e7eb;
+
+  /* Arrière-plans sombres avec meilleur contraste */
+  --color-app-white-normal: #1f2937;
+  --color-app-white-light: #374151;
+  --color-app-white-dark: #111827;
+}

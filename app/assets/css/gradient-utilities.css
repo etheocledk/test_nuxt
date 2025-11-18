@@ -1,0 +1,293 @@
+/* Utilitaires spécialisés pour les dégradés Winks optimisés */
+
+/* ========================================
+   COMPOSANTS AVEC DÉGRADÉS OPTIMISÉS
+   ======================================== */
+
+/* Cartes avec dégradés subtils */
+.card-gradient-primary {
+  @apply bg-gradient-primary-soft border border-primary-200 dark:border-primary-700;
+}
+
+.card-gradient-secondary {
+  @apply bg-gradient-secondary-soft border border-secondary-200 dark:border-secondary-700;
+}
+
+.card-gradient-tertiary {
+  @apply bg-gradient-tertiary-soft border border-tertiary-200 dark:border-tertiary-700;
+}
+
+/* Boutons avec dégradés et effets hover */
+.btn-gradient-primary {
+  @apply bg-gradient-primary text-white font-medium px-6 py-3 rounded-lg;
+  @apply hover:shadow-lg hover:scale-105 transition-all duration-200;
+  @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+}
+
+.btn-gradient-secondary {
+  @apply bg-gradient-secondary text-white font-medium px-6 py-3 rounded-lg;
+  @apply hover:shadow-lg hover:scale-105 transition-all duration-200;
+  @apply focus:outline-none focus:ring-2 focus:ring-secondary-500 focus:ring-offset-2;
+}
+
+.btn-gradient-tertiary {
+  @apply bg-gradient-tertiary text-white font-medium px-6 py-3 rounded-lg;
+  @apply hover:shadow-lg hover:scale-105 transition-all duration-200;
+  @apply focus:outline-none focus:ring-2 focus:ring-tertiary-500 focus:ring-offset-2;
+}
+
+/* Badges avec dégradés */
+.badge-gradient-success {
+  @apply bg-gradient-success text-white text-xs font-medium px-3 py-1 rounded-full;
+}
+
+.badge-gradient-warning {
+  @apply bg-gradient-warning text-white text-xs font-medium px-3 py-1 rounded-full;
+}
+
+.badge-gradient-error {
+  @apply bg-gradient-error text-white text-xs font-medium px-3 py-1 rounded-full;
+}
+
+/* ========================================
+   NOTIFICATIONS AVEC DÉGRADÉS
+   ======================================== */
+
+/* Conteneurs de notification avec dégradés subtils */
+.notification-gradient-success {
+  @apply bg-success-50 dark:bg-success-900/10 border-l-4 border-success-500;
+}
+
+.notification-gradient-warning {
+  @apply bg-warning-50 dark:bg-warning-900/10 border-l-4 border-warning-500;
+}
+
+.notification-gradient-error {
+  @apply bg-error-50 dark:bg-error-900/10 border-l-4 border-error-500;
+}
+
+.notification-gradient-info {
+  @apply bg-info-50 dark:bg-info-900/10 border-l-4 border-info-500;
+}
+
+/* ========================================
+   HEADERS ET SECTIONS
+   ======================================== */
+
+/* Header avec dégradé principal */
+.header-gradient {
+  @apply bg-gradient-to-r from-primary-600 to-secondary-500;
+  @apply text-white shadow-lg;
+}
+
+/* Section hero avec dégradé */
+.hero-gradient {
+  @apply bg-gradient-to-br from-primary-500 via-secondary-500 to-tertiary-500;
+  @apply text-white;
+}
+
+/* Section avec dégradé subtil */
+.section-gradient-light {
+  @apply bg-gradient-neutral-light dark:bg-gradient-neutral-dark;
+}
+
+/* ========================================
+   ÉTATS INTERACTIFS AVEC DÉGRADÉS
+   ======================================== */
+
+/* États hover avec dégradés */
+.hover-gradient-primary {
+  @apply transition-all duration-300;
+  @apply hover:bg-gradient-primary hover:text-white hover:shadow-md;
+}
+
+.hover-gradient-secondary {
+  @apply transition-all duration-300;
+  @apply hover:bg-gradient-secondary hover:text-white hover:shadow-md;
+}
+
+/* États focus avec anneaux colorés */
+.focus-ring-primary {
+  @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  @apply dark:focus:ring-offset-neutral-800;
+}
+
+.focus-ring-secondary {
+  @apply focus:outline-none focus:ring-2 focus:ring-secondary-500 focus:ring-offset-2;
+  @apply dark:focus:ring-offset-neutral-800;
+}
+
+/* ========================================
+   BORDURES AVEC DÉGRADÉS
+   ======================================== */
+
+/* Bordures avec dégradé via pseudo-éléments */
+.border-gradient-primary {
+  @apply relative bg-white dark:bg-neutral-900 rounded-lg;
+}
+
+.border-gradient-primary::before {
+  content: '';
+  @apply absolute inset-0 rounded-lg p-0.5 bg-gradient-primary;
+  @apply -z-10;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+
+/* ========================================
+   ICÔNES AVEC DÉGRADÉS
+   ======================================== */
+
+/* Conteneurs d'icônes avec dégradés */
+.icon-container-primary {
+  @apply w-12 h-12 rounded-full bg-gradient-primary-soft;
+  @apply flex items-center justify-center text-primary-600 dark:text-primary-400;
+}
+
+.icon-container-secondary {
+  @apply w-12 h-12 rounded-full bg-gradient-secondary-soft;
+  @apply flex items-center justify-center text-secondary-600 dark:text-secondary-400;
+}
+
+.icon-container-success {
+  @apply w-12 h-12 rounded-full bg-success-100 dark:bg-success-800/20;
+  @apply flex items-center justify-center text-success-600 dark:text-success-400;
+}
+
+.icon-container-warning {
+  @apply w-12 h-12 rounded-full bg-warning-100 dark:bg-warning-800/20;
+  @apply flex items-center justify-center text-warning-600 dark:text-warning-400;
+}
+
+.icon-container-error {
+  @apply w-12 h-12 rounded-full bg-error-100 dark:bg-error-800/20;
+  @apply flex items-center justify-center text-error-600 dark:text-error-400;
+}
+
+/* ========================================
+   ANIMATIONS AVEC DÉGRADÉS
+   ======================================== */
+
+/* Animation de pulsation avec dégradé */
+@keyframes gradient-pulse {
+  0%,
+  100% {
+    background-size: 100% 100%;
+  }
+  50% {
+    background-size: 110% 110%;
+  }
+}
+
+.animate-gradient-pulse {
+  animation: gradient-pulse 2s ease-in-out infinite;
+}
+
+/* Animation de mouvement de dégradé */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* ========================================
+   UTILITAIRES SPÉCIAUX
+   ======================================== */
+
+/* Overlay avec dégradé */
+.overlay-gradient {
+  @apply absolute inset-0 bg-gradient-to-t from-black/60 to-transparent;
+}
+
+/* Divider avec dégradé */
+.divider-gradient {
+  @apply h-px bg-gradient-to-r from-transparent via-neutral-300 to-transparent;
+  @apply dark:via-neutral-600;
+}
+
+/* Text shadow pour améliorer la lisibilité sur les dégradés */
+.text-shadow {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.text-shadow-strong {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   COMPOSANTS COMPLEXES
+   ======================================== */
+
+/* Carte de statistique avec dégradé */
+.stat-card-gradient {
+  @apply bg-gradient-primary-soft border border-primary-200 dark:border-primary-700;
+  @apply p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow;
+}
+
+/* Menu latéral avec dégradé */
+.sidebar-gradient {
+  @apply bg-gradient-to-b from-neutral-50 to-neutral-100;
+  @apply dark:from-neutral-900 dark:to-neutral-800;
+}
+
+/* Footer avec dégradé */
+.footer-gradient {
+  @apply bg-gradient-to-r from-neutral-800 to-neutral-900;
+  @apply text-neutral-100;
+}
+
+/* ========================================
+   RESPONSIVE ET ACCESSIBILITÉ
+   ======================================== */
+
+/* Réduction des dégradés pour les préférences d'accessibilité */
+@media (prefers-reduced-motion: reduce) {
+  .animate-gradient-pulse,
+  .animate-gradient-shift {
+    animation: none;
+  }
+
+  .hover-gradient-primary,
+  .hover-gradient-secondary {
+    transition: none;
+  }
+}
+
+/* Adaptation mobile pour les dégradés */
+@media (max-width: 640px) {
+  .btn-gradient-primary,
+  .btn-gradient-secondary,
+  .btn-gradient-tertiary {
+    @apply px-4 py-2 text-sm;
+  }
+
+  .icon-container-primary,
+  .icon-container-secondary {
+    @apply w-10 h-10;
+  }
+}
+
+/* Adaptation pour l'impression */
+@media print {
+  .bg-gradient-primary,
+  .bg-gradient-secondary,
+  .bg-gradient-tertiary,
+  .bg-gradient-primary-soft,
+  .bg-gradient-secondary-soft,
+  .bg-gradient-tertiary-soft {
+    @apply bg-white text-black border border-neutral-300;
+  }
+}
