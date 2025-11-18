@@ -83,5 +83,9 @@
   "seo": {
     "homeTitle": "Page d'accueil - Wink",
     "homeDescription": "Wink."
+  },
+  "error": {
+    "pageNotFound": "Page non trouvée",
+    "pageNotFoundDescription": "Désolé, cette page n'existe pas ou a été déplacée."
   }
 }
