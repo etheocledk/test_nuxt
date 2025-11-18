@@ -1,75 +1,67 @@
-# Nuxt Minimal Starter
+# Test Nuxt
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Ce projet est un starter Nuxt 3 moderne avec :
+- Internationalisation complète (français/anglais) via vue-i18n
+- Sidebar/navigation dynamique et traduite
+- Dark mode natif
+- Formulaires multi-étapes avec validation
+- Gestion d’avatar (upload, suppression, feedback)
+- Icônes SVG extraites en composants réutilisables
+- Accessibilité et responsive design
+
+## Fonctionnalités principales
+
+- **Internationalisation** : tous les textes utilisateurs sont traduits (fr-FR/en-US).
+- **Sidebar & navigation** : labels dynamiques, traduction automatique, menu d’équipe simplifié.
+- **Dark mode** : prise en charge complète, bascule dans l’UI.
+- **Formulaires** : étapes, validation, messages d’erreur/succès traduits.
+- **Gestion d’avatar** : upload, suppression, feedback utilisateur.
+- **Icônes** : tous les SVG sont des composants Vue.
 
 ## Setup
 
-Make sure to install dependencies:
+Installez les dépendances :
 
 ```bash
-# npm
-npm install
-
-# pnpm
+# pnpm (recommandé)
 pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
+# ou npm/yarn/bun
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+## Démarrer en développement
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
 pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
+# ou npm run dev, yarn dev, bun run dev
 ```
+
+Accédez à [http://localhost:3000](http://localhost:3000)
 
 ## Production
 
-Build the application for production:
-
+Build :
 ```bash
-# npm
-npm run build
-
-# pnpm
 pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+# ou npm run build, yarn build, bun run build
 ```
 
-Locally preview production build:
-
+Prévisualisation :
 ```bash
-# npm
-npm run preview
-
-# pnpm
 pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
+# ou npm run preview, yarn preview, bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Changer la langue
+
+Utilisez le sélecteur de langue dans l’interface (header) pour basculer entre français et anglais. Les textes, menus, formulaires et messages s’adaptent automatiquement.
+
+## Personnalisation
+
+- Ajoutez vos propres clés de traduction dans `i18n/locales/fr-FR.json` et `en-US.json`.
+- Modifiez la sidebar dans `app/layouts/default.vue` et les menus dans `AppSidebar.vue`.
+- Les icônes sont dans `components/icons/`.
+
+## Documentation
+
+- [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction)
+- [vue-i18n](https://vue-i18n.intlify.dev/)
