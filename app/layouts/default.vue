@@ -2,7 +2,7 @@
   <div class="flex min-h-screen">
     <!-- Sidebar gauche -->
     <aside
-      class="w-64 min-w-64 max-w-sm flex flex-col h-full bg-white dark:bg-gray-900/95 fixed left-0 top-0 bottom-0 z-20 border-r border-gray-200 dark:border-gray-700 overflow-x-hidden"
+      class="w-64 min-w-64 max-w-sm flex flex-col h-full bg-white dark:bg-gray-900/95 fixed left-0 top-0 bottom-0 z-20 border-r border-gray-200 dark:border-gray-700 overflow-x-hidden px-3"
     >
       <div class=" dark:border-gray-700">
         <div class="p-3 flex justify-center">
@@ -58,7 +58,7 @@
           />
         </div>
       </header>
-      <main class="flex-1 p-6 overflow-y-auto bg-gray-50 dark:bg-gray-800" style="margin-top: 56px">
+      <main class="flex-1 p-8 overflow-y-auto bg-gray-50 dark:bg-gray-800 py-12" style="margin-top: 56px">
         <slot />
       </main>
     </div>
