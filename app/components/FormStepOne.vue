@@ -42,7 +42,7 @@
             size="lg"
           >
             <template #leading>
-              <IconMail />
+              <IconsIconMail />
             </template>
           </UInput>
           <template #error>
@@ -68,7 +68,6 @@
 <script setup lang="ts">
 import type { FormSubmitEvent } from '@nuxt/ui'
 import { useI18n } from 'vue-i18n'
-import IconMail from '~/components/icons/IconMail.vue'
 import { z } from 'zod'
 
 const { t } = useI18n()

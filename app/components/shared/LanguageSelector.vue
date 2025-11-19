@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import { useI18nLocale } from '~/components/core/useI18nLocale'
 
 const showLang = ref(false)

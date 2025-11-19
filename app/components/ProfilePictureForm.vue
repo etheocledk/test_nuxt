@@ -62,11 +62,15 @@
             </div>
             <div class="mt-8">
               <div class="flex gap-1">
-                <button
+                <UButton
                   type="button"
-                  class="btn btn-outline btn-primary btn-sm border border-gray-300 mx-1 rounded-xl px-4 py-2 flex items-center gap-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800"
+                  color="primary"
+                  variant="outline"
+                  size="sm"
+                  class="mx-1 rounded-xl px-4 py-2 flex items-center gap-2"
                   :disabled="isUploading"
                   @click="triggerFileSelect"
+                  aria-label="{{ avatarUrl === defaultAvatar ? t('profilePicture.addPhoto') : t('profilePicture.editPhoto') }}"
                 >
                   <IconsIconUpload />
                   {{
@@ -74,15 +78,19 @@
                       ? t('profilePicture.addPhoto')
                       : t('profilePicture.editPhoto')
                   }}
-                </button>
-                <button
+                </UButton>
+                <UButton
                   type="button"
-                  class="btn btn-outline btn-error btn-sm border border-gray-300 mx-1 rounded-xl px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800"
+                  color="error"
+                  variant="outline"
+                  size="sm"
+                  class="mx-1 rounded-xl px-4 py-2"
                   :disabled="isUploading || !avatarUrl"
                   @click="removeAvatar"
+                  aria-label="{{ t('profilePicture.remove') }}"
                 >
                   {{ t('profilePicture.remove') }}
-                </button>
+                </UButton>
               </div>
               <span class="text-sm mt-1 block">{{ t('profilePicture.format') }}</span>
             </div>
