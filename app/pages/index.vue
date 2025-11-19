@@ -3,9 +3,14 @@
     <SharedSeoManager />
     <UStepper v-model="step" :items="items" />
     <div class="mt-8">
-      <FormStepOne v-if="step === 0" @next-step="step++" />
-      <FormStepTwo v-else-if="step === 1" @prev-step="step--" @next-step="step++" />
-      <FormStepThree v-else-if="step === 2" />
+      <Transition name="fade-slide" mode="out-in">
+        <component
+          :is="currentStepComponent"
+          :key="step"
+          @next-step="nextStep"
+          @prev-step="prevStep"
+        />
+      </Transition>
     </div>
   </UContainer>
 </template>
@@ -18,19 +23,41 @@ import FormStepOne from '~/components/FormStepOne.vue'
 import FormStepTwo from '~/components/FormStepTwo.vue'
 import FormStepThree from '~/components/FormStepThree.vue'
 
-const { t, locale } = useI18n()
+const { t } = useI18n()
 
 const items = computed<StepperItem[]>(() => [
-  {
-    title: t('formStepOne.title')
-  },
-  {
-    title: t('formStepTwo.title')
-  },
-  {
-    title: t('formStepThree.title')
-  }
+  { title: t('formStepOne.title') },
+  { title: t('formStepTwo.title') },
+  { title: t('formStepThree.title') }
 ])
 
 const step = ref(0)
+
+const currentStepComponent = computed(() => {
+  if (step.value === 0) return FormStepOne
+  if (step.value === 1) return FormStepTwo
+  if (step.value === 2) return FormStepThree
+  return FormStepOne
+})
+
+function nextStep() {
+  if (step.value < 2) step.value++
+}
+function prevStep() {
+  if (step.value > 0) step.value--
+}
 </script>
+
+<style scoped>
+.fade-slide-enter-active, .fade-slide-leave-active {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.fade-slide-enter-from {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.fade-slide-leave-to {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+</style>

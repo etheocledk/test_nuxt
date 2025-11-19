@@ -4,6 +4,7 @@
       :schema="schema"
       :state="state"
       class="space-y-6 bg-white dark:bg-gray-900 rounded-xl pl-20"
+      v-slot="{ errors }"
       @submit="onSubmit"
     >
       <h2 class="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
@@ -18,6 +19,9 @@
             class="w-lg text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
             size="lg"
           />
+          <template #error>
+            <span v-if="getError(errors, 'prenom')" class="text-red-500 text-sm">{{ getError(errors, 'prenom') }}</span>
+          </template>
         </UFormField>
         <UFormField :label="t('formStepOne.lastname')" name="nom">
           <UInput
@@ -26,6 +30,9 @@
             class="w-lg text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
             size="lg"
           />
+          <template #error>
+            <span v-if="getError(errors, 'nom')" class="text-red-500 text-sm">{{ getError(errors, 'nom') }}</span>
+          </template>
         </UFormField>
         <UFormField :label="t('formStepOne.email')" name="email">
           <UInput
@@ -38,6 +45,9 @@
               <IconMail />
             </template>
           </UInput>
+          <template #error>
+            <span v-if="getError(errors, 'email')" class="text-red-500 text-sm">{{ getError(errors, 'email') }}</span>
+          </template>
         </UFormField>
       </div>
       <div class="flex justify-start">
@@ -81,5 +91,10 @@ const emit = defineEmits(['nextStep'])
 async function onSubmit(event: FormSubmitEvent<FormState>) {
   console.log(state)
   emit('nextStep')
+}
+
+function getError(errors: any[], field: string) {
+  const err = errors.find(e => e.path === field)
+  return err ? err.message : ''
 }
 </script>

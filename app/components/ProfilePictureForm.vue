@@ -16,10 +16,10 @@
               ]"
             >
               <template v-if="shape === 'square'">
-                <IconBuilding />
+                <IconsIconBuilding />
               </template>
               <template v-else>
-                <IconAvatar />
+                <IconsIconAvatar />
               </template>
             </div>
           </template>
@@ -42,7 +42,7 @@
                 : 'absolute inset-0 bg-white bg-opacity-50 rounded-full flex items-center justify-center'
             "
           >
-            <IconSpinner v-if="isUploading" />
+            <IconsIconSpinner v-if="isUploading" />
           </div>
         </div>
       </div>
@@ -68,7 +68,7 @@
                   :disabled="isUploading"
                   @click="triggerFileSelect"
                 >
-                  <IconUpload />
+                  <IconsIconUpload />
                   {{
                     avatarUrl === defaultAvatar
                       ? t('profilePicture.addPhoto')
@@ -92,7 +92,7 @@
             class="bg-blue-100 border border-blue-200 rounded-lg p-2 max-w-xl"
           >
             <div class="flex items-center gap-2">
-              <IconSpinner
+              <IconsIconSpinner
                 class="animate-spin h-4 w-4 text-blue-700 shrink-0"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -109,10 +109,6 @@
 <script setup lang="ts">
 import { ref, defineProps } from 'vue'
 import { useI18n } from 'vue-i18n'
-import IconBuilding from '~/components/icons/IconBuilding.vue'
-import IconAvatar from '~/components/icons/IconAvatar.vue'
-import IconSpinner from '~/components/icons/IconSpinner.vue'
-import IconUpload from '~/components/icons/IconUpload.vue'
 
 const { t } = useI18n()
 

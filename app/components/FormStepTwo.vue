@@ -3,6 +3,7 @@
     <UForm
       :schema="schema"
       :state="state"
+      v-slot="{ errors }"
       class="space-y-6 bg-white dark:bg-gray-900 rounded-xl pl-20"
       @submit="onSubmit"
     >
@@ -37,6 +38,9 @@
             class="w-lg text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
             size="lg"
           />
+          <template #error>
+            <span v-if="getError(errors, 'nomEntreprise')" class="text-red-500 text-sm">{{ getError(errors, 'nomEntreprise') }}</span>
+          </template>
         </UFormField>
         <UFormField :label="t('formStepTwo.companyDescription')" name="description">
           <UTextarea
@@ -45,6 +49,9 @@
             class="w-lg text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
             size="lg"
           />
+          <template #error>
+            <span v-if="getError(errors, 'description')" class="text-red-500 text-sm">{{ getError(errors, 'description') }}</span>
+          </template>
         </UFormField>
         <UFormField :label="t('formStepTwo.website')" name="site">
           <div class="flex">
@@ -59,6 +66,9 @@
               size="lg"
             />
           </div>
+          <template #error>
+            <span v-if="getError(errors, 'site')" class="text-red-500 text-sm">{{ getError(errors, 'site') }}</span>
+          </template>
         </UFormField>
         <UFormField :label="t('formStepTwo.address')" name="adresse">
           <UInput
@@ -67,6 +77,9 @@
             class="w-lg text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
             size="lg"
           />
+          <template #error>
+            <span v-if="getError(errors, 'adresse')" class="text-red-500 text-sm">{{ getError(errors, 'adresse') }}</span>
+          </template>
         </UFormField>
         <UFormField :label="t('formStepTwo.sector')" name="secteur">
           <UInput
@@ -75,6 +88,9 @@
             class="w-lg text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
             size="lg"
           />
+          <template #error>
+            <span v-if="getError(errors, 'secteur')" class="text-red-500 text-sm">{{ getError(errors, 'secteur') }}</span>
+          </template>
         </UFormField>
       </div>
       <div class="flex justify-between mt-8 w-lg">
@@ -128,5 +144,10 @@ const state = reactive<Partial<FormState>>({
 function onSubmit() {
 
   emit('next-step')
+}
+
+function getError(errors: any[], field: string) {
+  const err = errors.find(e => e.path === field)
+  return err ? err.message : ''
 }
 </script>
